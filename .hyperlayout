@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "entry": "horizontal",
+    "layout": [
+      ["yarn dev:web", "yarn dev:api"]
+    ]
+  },
+
+  "api": {
+    "entry": "vertical",
+    "layout": [
+      ["yarn dev:api", "yarn test:api"]
+    ]
+  }
+}

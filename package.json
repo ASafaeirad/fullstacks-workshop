@@ -1,0 +1,51 @@
+{
+  "name": "frontendmonsters",
+  "version": "1.0.0",
+  "private": true,
+  "author": "S-Kill <frontendmonster@gmail.com>",
+  "scripts": {
+    "clean": "nps clean",
+    "lint": "nps lint",
+    "lint:fix": "nps lint.fix",
+    "build": "nps build",
+    "watch": "nps build.watch",
+    "dev": "hyperlayout dev",
+    "dev:api": "nps dev.api",
+    "dev:web": "nps dev.web",
+    "test": "nps test",
+    "test:api": "nps test.api",
+    "test:web": "nps test.web",
+    "check": "nps check"
+  },
+  "workspaces": [
+    "packages/*",
+    "standalone-packages/*"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/runtime": "^7.1.0",
+    "@frontendmonster/dev-utils": "^1.3.2",
+    "@frontendmonster/eslint-config": "^1.1.3",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.6.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "flow-bin": "^0.82.0",
+    "husky": "^1.0.0",
+    "hyperlayout": "^0.2.1",
+    "lerna": "^3.4.0",
+    "lint-staged": "^7.3.0",
+    "nps": "^5.9.3",
+    "nps-utils": "^1.7.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lerna run --concurrency 1 --stream precommit"
+    }
+  }
+}

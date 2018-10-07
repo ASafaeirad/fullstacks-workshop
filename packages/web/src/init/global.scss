@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "yekan";
+  src: url(/fonts/Yekan/Yekan.eot);
+  src: url(/fonts/Yekan/Yekan.eot?#iefix) format("embedded-opentype"),
+        url(/fonts/Yekan/Yekan.woff)       format("woff"),
+        url(/fonts/Yekan/Yekan.ttf)        format("truetype"),
+        url(/fonts/Yekan/Yekan.svg#BYekan) format("svg");
+
+  font-weight: normal;
+  font-style: normal
+}
+
+#app {
+  min-height: 100%;
+}

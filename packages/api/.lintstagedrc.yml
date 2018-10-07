@@ -1,0 +1,4 @@
+linters:
+  ./**/*.js:
+    - yarn run lint:fix
+    - git add
