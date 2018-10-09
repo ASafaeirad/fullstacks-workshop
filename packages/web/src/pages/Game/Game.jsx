@@ -13,7 +13,11 @@ const stacks = [
 
 const Game = () => (
   <Section className={cx('section')}>
-    <div className={cx('screen')} />
+    <div className={cx('image')}>
+      <div className={cx('screen')}>
+        <img src="" alt="book" />
+      </div>
+    </div>
     <SectionContent stacks={stacks} title="Game Development" info="Road to become game developer" />
   </Section>
 );
