@@ -6,6 +6,9 @@
 
 .heading {
   position: relative;
+  font-size: 40px;
+  line-height: 1em;
+  font-weight: 500;
 
   &:before {
     content: ' ';
@@ -20,5 +23,6 @@
 }
 
 .subhead {
-  opacity: .5;
+  opacity: .4;
+  font-size: 20px;
 }
