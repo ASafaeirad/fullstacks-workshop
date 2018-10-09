@@ -1,0 +1,19 @@
+@import 'variables';
+
+.root {
+  color: inherit;
+  background-color: transparent;
+  border: 1px solid $white;
+  width: 180px;
+  min-height: 45px;
+  transition: background-color 500ms, color 500ms;
+
+  &:hover {
+    background-color: $white;
+    color: #222;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

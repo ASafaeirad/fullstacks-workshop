@@ -1,0 +1,15 @@
+@import 'variables';
+$font-size-xs: .7rem;
+
+.root {
+  fill: $white;
+  font-size:$font-size-xs;
+  opacity: .2;
+  height: 35px;
+  width: 50%;
+  transition: opacity 500ms;
+
+  &:hover {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,14 @@
+@import 'variables';
+$game-bg: #120e15;
+
+.section {
+  background-color: $game-bg;
+  color: $white;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.screen {
+  flex: 1;
+}
+

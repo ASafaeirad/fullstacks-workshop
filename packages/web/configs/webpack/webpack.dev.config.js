@@ -1,15 +1,17 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
-const WebpackBar = require('webpackbar');
+const SimpleProgressWebpackPlugin = require('simple-progress-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const webpackBaseConfig = require('./webpack.base.config');
 
 const devConfig = {
   devtool: 'cheap-module-eval-source-map',
   mode: 'development',
   plugins: [
-    new WebpackBar({
-      color: 'cyan',
+    new FriendlyErrorsWebpackPlugin(),
+    new SimpleProgressWebpackPlugin({
+      format: 'compact',
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',

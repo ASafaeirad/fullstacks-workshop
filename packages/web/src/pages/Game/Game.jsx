@@ -1,17 +1,20 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Game.scss';
-import { Section } from '../../components';
+import { Section, SectionContent } from '../../components';
 
 const cx = classNames.bind(styles);
 
+const stacks = [
+  { icon: 'maya' },
+  { icon: 'unreal' },
+  { icon: 'substance' },
+];
+
 const Game = () => (
-  <Section>
+  <Section className={cx('section')}>
     <div className={cx('screen')} />
-    <div className={cx('content')}>
-      <h1 className={cx('heading')}>Game Development <br />Workshops</h1>
-      <p className={cx('subhead')}>Road to become game developer</p>
-    </div>
+    <SectionContent stacks={stacks} title="Game Development" info="Road to become game developer" />
   </Section>
 );
 
