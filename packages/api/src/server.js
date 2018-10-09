@@ -1,13 +1,8 @@
 import env from '@frontendmonster/dev-utils/env';
 import http from 'http';
 import { MongooseClient, RedisClient } from './dal';
-import { logger } from './logger';
+import { logger, logServerStat } from './logger';
 import { createApp } from './app';
-
-const logServerStat = () => {
-  logger.success('Server ready at 4000');
-  logger.warning('Environment: ', env.get());
-};
 
 export const startServer = async () => {
   try {
@@ -23,7 +18,7 @@ export const startServer = async () => {
   const server = http.createServer(app);
   const port = process.env.port || 4000;
 
-  server.listen(port, logServerStat);
+  server.listen(port, () => logServerStat({ port, env: env.get() }));
 
   return server;
 };
