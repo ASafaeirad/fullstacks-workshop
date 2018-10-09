@@ -1,3 +1,6 @@
+@import 'variables';
+@import 'reboot';
+
 @font-face {
   font-family: "yekan";
   src: url(/fonts/Yekan/Yekan.eot);
@@ -10,6 +13,11 @@
   font-style: normal
 }
 
-#app {
+html, body {
+  height: 100%;
+}
+
+:global #app {
   min-height: 100%;
+  display: flex;
 }

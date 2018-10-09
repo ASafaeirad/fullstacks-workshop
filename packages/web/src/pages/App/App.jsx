@@ -1,9 +1,10 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { Main } from '../Main';
 
 const App = () => (
   <Switch>
-    <Route exact path="/" render={() => <h1 style={{ margin: 'auto' }}>Hello World</h1>} />
+    <Route exact path="/" component={Main} />
   </Switch>
 );
 
