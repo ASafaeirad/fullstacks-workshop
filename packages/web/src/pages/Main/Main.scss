@@ -1,6 +1,27 @@
-.main {
+@import 'variables';
+$main-bg: #131419;
+
+.section {
+  background-color: $main-bg;
+  color: $white;
   display: flex;
+  flex-flow: column nowrap;
   justify-content: center;
-  align-self: center;
-  height: 100%;
+  align-items: center;
+}
+
+.heading {
+  text-align: center;
+}
+
+.subhead {
+  margin-bottom: 2em;
+}
+
+.button {
+  color: inherit;
+  background: transparent;
+  border: 1px solid $white;
+  width: 150px;
+  height: 40px;
 }

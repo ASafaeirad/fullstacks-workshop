@@ -43,3 +43,6 @@ yarn-error.log*
 
 # Deadcodes
 /.deadcodes
+
+# Design
+/design

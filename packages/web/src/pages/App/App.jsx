@@ -1,10 +1,10 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Main } from '../Main';
+import { Home } from '../Home';
 
 const App = () => (
   <Switch>
-    <Route exact path="/" component={Main} />
+    <Route exact path="/" component={Home} />
   </Switch>
 );
 
