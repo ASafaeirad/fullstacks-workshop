@@ -1,8 +1,7 @@
 @import 'variables';
-$game-bg: #131217;
 
 .section {
-  background-color: $game-bg;
+  background-image: linear-gradient(to bottom, $main-bg, $game-bg);
   color: $white;
   display: flex;
   flex-flow: row nowrap;

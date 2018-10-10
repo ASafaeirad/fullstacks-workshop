@@ -1,14 +1,10 @@
 @import 'variables';
 
 .section {
-  background-image: linear-gradient(to bottom, $game-bg, $app-bg);
+  background-image: linear-gradient(to bottom, $app-bg, $core-bg);
   color: $white;
   display: flex;
   flex-flow: row nowrap;
-}
-
-.content {
-  padding-left: 80px;
 }
 
 .view {
@@ -20,6 +16,6 @@
 }
 
 .screen {
-  background-image: url('/images/application.png');
+  background-image: url('/images/console.png');
   background-size: cover;
 }
