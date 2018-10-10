@@ -10,9 +10,9 @@
   &:before {
     content: ' ';
     position: absolute;
-    background-color: $white;
+    background-color: $text-light;
     width: 3px;
-    height: 25px;
+    height: 36px;
     top: 50%;
     transform: translateY(-50%);
     left: -15px;

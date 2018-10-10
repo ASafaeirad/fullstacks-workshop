@@ -5,9 +5,10 @@ $font-size-xs: .9rem;
   fill: $white;
   font-size:$font-size-xs;
   opacity: .2;
-  height: 35px;
+  height: 25px;
   width: 50%;
   transition: opacity 500ms;
+  margin-bottom: 1em;
 
   &:hover {
     opacity: 1;

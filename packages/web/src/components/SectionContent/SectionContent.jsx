@@ -8,8 +8,8 @@ import { SectionHeading } from '../SectionHeading';
 
 const cx = classNames.bind(styles);
 
-const SectionContent = ({ title, info, stacks }) => (
-  <div className={cx('root')}>
+const SectionContent = ({ title, info, stacks, className }) => (
+  <div className={cx('root', className)}>
     <SectionHeading title={title} info={info} />
     <Button>Take a look</Button>
     <Stacks className={cx('stacks')} stacks={stacks} />

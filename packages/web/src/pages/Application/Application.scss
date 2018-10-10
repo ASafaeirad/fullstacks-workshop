@@ -1,0 +1,26 @@
+@import 'variables';
+$app-bg: #181116;
+
+.section {
+  background-color: $app-bg;
+  color: $white;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.content {
+  padding-left: 80px;
+}
+
+.view {
+  width: 50%;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.screen {
+  background-image: url('/images/application.png');
+  background-size: cover;
+}

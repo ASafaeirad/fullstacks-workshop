@@ -1,5 +1,5 @@
 @import 'variables';
-$game-bg: #120e15;
+$game-bg: #131217;
 
 .section {
   background-color: $game-bg;
@@ -13,6 +13,7 @@ $game-bg: #120e15;
   min-width: 200px;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 .screen {
