@@ -1,4 +1,5 @@
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { generateWebpackRules } = require('@frontendmonster/dev-utils/webpack');
@@ -74,6 +75,7 @@ const config = {
   plugins: [
     new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) } }),
     new CaseSensitivePathsPlugin(),
+    new CopyWebpackPlugin([{ from: path.join(root, 'public'), to: path.join(projectRoot, 'docs'), ignore: ['index.html', 'favicon.ico'] }]),
   ],
 };
 
