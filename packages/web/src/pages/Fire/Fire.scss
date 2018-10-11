@@ -1,4 +1,5 @@
 .root {
+  height: 120vh;
   background-image: url('/images/fire.png');
   background-size: cover;
   background-position: 50% 100%;
@@ -8,7 +9,7 @@
 
 .particles {
   position: absolute;
-  width: 15%;
-  left: 43%;
+  width: 20%;
+  left: 40%;
   height: calc(80% - 10px);
 }
