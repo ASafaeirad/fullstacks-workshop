@@ -9,7 +9,11 @@ module.exports.scripts = {
     fix: 'lerna run lint:fix',
   },
 
-  build: 'lerna run build',
+  build: {
+    default: 'lerna run build',
+    api: `${env.set(env.prod)} yarn workspace @fullstacks/api run build`,
+    web: `${env.set(env.prod)} yarn workspace @fullstacks/web run build`,
+  },
 
   watch: 'lerna run build:watch --parallel',
 

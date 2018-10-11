@@ -6,12 +6,13 @@ const autoprefixer = require('autoprefixer');
 const path = require('path');
 
 const root = path.join(__dirname, '..', '..');
+const projectRoot = path.join(__dirname, '..', '..', '..', '..');
 
 const config = {
   target: 'web',
   entry: ['./src'],
   output: {
-    path: path.join(root, 'dist'),
+    path: path.join(projectRoot, 'docs'),
     publicPath: '/',
     filename: '[name].[hash].js',
     sourceMapFilename: '[name].[hash].map',

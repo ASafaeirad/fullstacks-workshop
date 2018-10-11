@@ -8,6 +8,8 @@
     "lint": "nps lint",
     "lint:fix": "nps lint.fix",
     "build": "nps build",
+    "build:api": "nps build.api",
+    "build:web": "nps build.web",
     "watch": "nps build.watch",
     "dev": "hyperlayout dev",
     "dev:api": "nps dev.api",

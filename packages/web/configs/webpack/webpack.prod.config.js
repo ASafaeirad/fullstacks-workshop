@@ -3,8 +3,19 @@ const merge = require('webpack-merge');
 const webpackBaseConfig = require('./webpack.base.config');
 
 const prodConfig = {
-  devtool: 'source-map',
+  devtool: 'none',
   mode: 'production',
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          chunks: 'all',
+          priority: 1,
+        },
+      },
+    },
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
