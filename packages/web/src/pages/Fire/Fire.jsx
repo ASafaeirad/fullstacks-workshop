@@ -48,7 +48,7 @@ const Fire = () => (
         },
       }}
     />
-
+    <p className={cx('quote')}>&lt; Made with <span className={cx('heart')} role="img" aria-label="heart">💛</span> by NorthcampStudio &gt;</p>
   </Section>
 
 );

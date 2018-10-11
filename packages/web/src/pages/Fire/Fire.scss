@@ -1,3 +1,5 @@
+@import 'variables';
+
 .root {
   height: 120vh;
   background-image: url('/images/fire.png');
@@ -12,4 +14,24 @@
   width: 20%;
   left: 40%;
   height: calc(80% - 10px);
+}
+
+.quote {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  opacity: .8;
+  font-size: 1.2em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 400;
+  color: $white;
+}
+
+.heart {
+  color: transparent;
+  font-size: .5em;
+  bottom: 5px;
+  position: relative;
+  text-shadow: 0 1px 0 rgba(255,255,255, 1);
 }
