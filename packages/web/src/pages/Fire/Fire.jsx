@@ -41,7 +41,7 @@ const Fire = () => (
           },
           move: {
             random: true,
-            speed: 1.5,
+            speed: 0.8,
             direction: 'top',
             out_mode: 'out',
           },
