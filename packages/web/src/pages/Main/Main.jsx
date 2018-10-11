@@ -63,7 +63,7 @@ const Main = () => (
         retina_detect: true,
       }}
     />
-    <img src="" alt="" />
+    <img className={cx('logo')} src="images/logo.png" alt="logo" />
     <Heading tag="h1" className={cx('heading')}>Fullstacks <br />Learning Path</Heading>
     <p className={cx('subhead')}>Workshops for web and game developers</p>
     <Button>Take a look</Button>

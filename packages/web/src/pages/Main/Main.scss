@@ -1,17 +1,23 @@
 @import 'variables';
 
 .section {
-  background-color: $main-bg;
+  background-image: linear-gradient(to bottom, $sky-bg, $main-bg);
   color: $white;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   position: relative;
+  padding-bottom: 3em;
+}
+
+.logo {
+  margin-bottom: 4em;
 }
 
 .heading {
   text-align: center;
+  color: $white;
 }
 
 .subhead {
