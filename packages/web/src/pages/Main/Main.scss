@@ -12,20 +12,30 @@
 }
 
 .logo {
-  margin-bottom: 4em;
+  margin-bottom: 3em;
 }
 
 .heading {
   text-align: center;
   color: $white;
+  font-size: 3.8em !important;
 }
 
 .subhead {
   margin-bottom: 2em;
+  opacity: .6;
+  color: $text-light;
 }
 
 .stars {
+  position: absolute;
+  z-index: 0;
+  pointer-events: visibleStroke;
   width: 100%;
   height: 100%;
-  position: absolute;
+}
+
+.button {
+  position: relative;
+  z-index: 1;
 }

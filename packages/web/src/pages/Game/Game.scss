@@ -22,15 +22,19 @@
 
 .bg {
   object-fit: cover;
+  width: 100%;
 }
 
 .book {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: calc(50% - 40px);
   width: 60%;
   max-width: 290px;
+  height: 60%;
+  object-fit: contain;
   transform: translate(-50%, -50%);
+  will-change: transform;
   animation: swing 5s infinite ease-in-out;
 }
 

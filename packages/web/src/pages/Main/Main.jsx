@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import Particles from 'react-particles-js';
 import styles from './Main.scss';
-import { Section, Button, Heading } from '../../components';
+import { Section, Button, Heading, P } from '../../components';
 
 const cx = classNames.bind(styles);
 
@@ -65,8 +65,8 @@ const Main = () => (
     />
     <img className={cx('logo')} src="images/logo.png" alt="logo" />
     <Heading tag="h1" className={cx('heading')}>Fullstacks <br />Learning Path</Heading>
-    <p className={cx('subhead')}>Workshops for web and game developers</p>
-    <Button>Take a look</Button>
+    <P className={cx('subhead')}>Workshops for web and game developers</P>
+    <Button className={cx('button')}>Take a look</Button>
   </Section>
 );
 

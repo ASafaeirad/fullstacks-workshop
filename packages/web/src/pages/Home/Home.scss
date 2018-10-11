@@ -1,5 +1,10 @@
-.wrapper {
-  width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
+.indicator {
+  top: 50%;
+  transform: translateY(-50%);
+  right: 40px;
+}
+
+.right {
+  right: unset;
+  left: 40px;
 }

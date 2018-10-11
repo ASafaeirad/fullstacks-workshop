@@ -1,7 +1,9 @@
-export { Section } from './Section';
 export { Button } from './Button';
-export { SectionContent } from './SectionContent';
 export { Heading } from './Heading';
-export { Stacks } from './Stacks';
-export { Stack } from './Stack';
+export { Indicator } from './Indicator';
 export { Screen } from './Screen';
+export { Section } from './Section';
+export { SectionContent } from './SectionContent';
+export { Stack } from './Stack';
+export { Stacks } from './Stacks';
+export { P } from './P';

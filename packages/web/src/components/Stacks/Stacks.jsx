@@ -1,5 +1,5 @@
 import React from 'react';
-import { arrayOf } from 'prop-types';
+import { arrayOf, shape } from 'prop-types';
 import classNames from 'classnames/bind';
 import { Stack } from '../Stack';
 import styles from './Stacks.scss';
@@ -13,7 +13,7 @@ const Stacks = ({ stacks, className }) => (
 );
 
 Stacks.propTypes = {
-  stacks: arrayOf().isRequired,
+  stacks: arrayOf(shape({})).isRequired,
 };
 
 export default Stacks;

@@ -9,6 +9,8 @@ $font-size-xs: .9rem;
   width: 50%;
   transition: opacity 500ms;
   margin-bottom: 1em;
+  cursor: pointer;
+  user-select: none;
 
   &:hover {
     opacity: 1;
