@@ -1,5 +1,7 @@
 @import 'variables';
 
+$fire-color: #caa584;
+
 .root {
   height: 100vh;
   background-image: url('/images/fire.png');
@@ -25,7 +27,7 @@
   left: 50%;
   transform: translateX(-50%);
   font-weight: 400;
-  color: $white;
+  color: $fire-color;
 }
 
 .heart {
@@ -33,5 +35,5 @@
   font-size: .5em;
   bottom: 5px;
   position: relative;
-  text-shadow: 0 1px 0 rgba(255,255,255, 1);
+  text-shadow: 0 1px 0 $fire-color;
 }

@@ -5,6 +5,11 @@ const webpackBaseConfig = require('./webpack.base.config');
 const prodConfig = {
   devtool: 'none',
   mode: 'production',
+  output: {
+    filename: '[name].[contenthash].js',
+    sourceMapFilename: '[name].[contenthash].map',
+  },
+
   optimization: {
     splitChunks: {
       cacheGroups: {
