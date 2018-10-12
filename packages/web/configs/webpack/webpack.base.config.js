@@ -15,8 +15,8 @@ const config = {
   output: {
     path: path.join(projectRoot, 'docs'),
     publicPath: '/',
-    filename: '[name].[hash].js',
-    sourceMapFilename: '[name].[hash].map',
+    filename: '[name].[contenthash].js',
+    sourceMapFilename: '[name].[contenthash].map',
   },
   resolve: {
     extensions: ['.webpack.js', '.web.js', '.mjs', '.js', '.json', '.jsx'],

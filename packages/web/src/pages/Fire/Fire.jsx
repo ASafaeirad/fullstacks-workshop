@@ -15,10 +15,13 @@ const Fire = () => (
       params={{
         particles: {
           number: {
-            value: 120,
+            value: 140,
             density: {
               enable: false,
             },
+          },
+          color: {
+            value: '#caa584',
           },
           opacity: {
             value: 0.3,
