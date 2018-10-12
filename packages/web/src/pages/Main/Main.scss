@@ -12,12 +12,14 @@
 }
 
 .logo {
+  height: 120px;
   margin-bottom: 3em;
 }
 
 .heading {
   text-align: center;
-  color: $white;
+  color: $white !important;
+  opacity: .9;
   font-size: 3.8em !important;
 }
 

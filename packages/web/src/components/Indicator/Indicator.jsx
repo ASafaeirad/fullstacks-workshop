@@ -19,12 +19,13 @@ const Circle = styled('div')`
 
 const Container = styled('div')`
   position: relative;
-  opacity: ${props => (props.active ? 1 : 0.05)};
+  opacity: ${props => (props.active ? 1 : 0.2)};
   transition: opacity 500ms;
   cursor: pointer;
+  font-size: ${props => (props.active ? '16px' : '14px')};
 
   &:hover {
-    opacity: ${props => !props.active && 0.3};
+    opacity: ${props => !props.active && 0.5};
   }
 `;
 
