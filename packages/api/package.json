@@ -9,7 +9,7 @@
     "test": "jest --detectOpenHandles --forceExit --runInBand",
     "test:watch": "yarn run test --watch",
     "test:cover": "yarn run test --coverage",
-    "lint": "eslint .",
+    "lint": "eslint --ignore-pattern dist/ .",
     "lint:fix": "yarn run lint --fix",
     "prebuild": "yarn run clean",
     "build": "gulp build",
@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "compression": "^1.7.3",
+    "cors": "^2.8.4",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "helmet": "^3.13.0",

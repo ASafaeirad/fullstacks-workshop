@@ -1,6 +1,6 @@
 import env from '@frontendmonster/dev-utils/env';
 import http from 'http';
-import { MongooseClient, RedisClient } from './dal';
+import { MongooseClient, RedisClient, models } from './dal';
 import { logger, logServerStat } from './logger';
 import { createApp } from './app';
 
@@ -14,7 +14,7 @@ export const startServer = async () => {
     return;
   }
 
-  const app = createApp({ secret: process.env.JWT_SECRET, verbose: env.isDev });
+  const app = createApp({ verbose: env.isDev, models });
   const server = http.createServer(app);
   const port = process.env.port || 4000;
 
