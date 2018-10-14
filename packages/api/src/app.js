@@ -19,6 +19,7 @@ export const createApp = ({ models, verbose } = {}) => {
   app.use(cors());
 
   app.use((req, _, next) => {
+    req.fullstacks = req.fullstacks || {};
     req.fullstacks.models = models;
     next();
   });
