@@ -1,0 +1,14 @@
+@import 'variables.scss';
+
+.container {
+  color: $text-light;
+  background-color: $game-bg;
+  display: flex;
+  width: 100%;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.heading {
+  margin: .8em 0;
+}

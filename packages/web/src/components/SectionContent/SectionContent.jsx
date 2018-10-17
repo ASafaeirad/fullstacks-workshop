@@ -12,7 +12,7 @@ const SectionContent = ({ title, info, stacks, className }) => (
   <div className={cx('root', className)}>
     <SectionHeading title={title} info={info} />
     <Button>Take a look</Button>
-    <Stacks className={cx('stacks')} stacks={stacks} />
+    <Stacks className={cx('stacks')} hover stacks={stacks} />
   </div>
 );
 

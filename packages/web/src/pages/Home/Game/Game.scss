@@ -1,0 +1,62 @@
+@import 'variables';
+
+.section {
+  background-image: linear-gradient(to bottom, $main-bg, $game-bg);
+  color: $white;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.view {
+  width: 50%;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.screen {
+  display: flex;
+  justify-content: center;
+}
+
+.bg {
+  object-fit: cover;
+  width: 100%;
+}
+
+.book {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 40px);
+  width: 60%;
+  max-width: 290px;
+  height: 60%;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  animation: swing 5s infinite ease-in-out;
+}
+
+.loading {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 0);
+  width: 100px;
+  height: 100px;
+}
+
+@keyframes swing {
+  0% {
+    transform: translate(-50%, -44%);
+  }
+
+  50% {
+    transform: translate(-50%, -54%);
+  }
+
+  100% {
+    transform: translate(-50%, -44%);
+  }
+}

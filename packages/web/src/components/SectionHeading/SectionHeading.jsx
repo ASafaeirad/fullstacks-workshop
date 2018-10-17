@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 const SectionHeading = ({ title, info }) => (
   <div className={cx('root')}>
     <Heading className={cx('heading')}>{title}<br />Workshops</Heading>
-    <P className={cx('subhead')}>{info}</P>
+    <P className={cx('subhead')} lg>{info}</P>
   </div>
 );
 

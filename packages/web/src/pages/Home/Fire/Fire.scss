@@ -1,0 +1,39 @@
+@import 'variables';
+
+$fire-color: #caa584;
+
+.root {
+  height: 100vh;
+  background-image: url('/images/fire.png');
+  background-size: cover;
+  background-position: 50% 100%;
+  position: relative;
+  overflow: visible;
+}
+
+.particles {
+  position: absolute;
+  width: 20%;
+  left: 40%;
+  height: calc(80% - 10px);
+}
+
+.quote {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  opacity: .8;
+  font-size: 1.2em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 400;
+  color: $fire-color;
+}
+
+.heart {
+  color: transparent;
+  font-size: .5em;
+  bottom: 5px;
+  position: relative;
+  text-shadow: 0 1px 0 $fire-color;
+}

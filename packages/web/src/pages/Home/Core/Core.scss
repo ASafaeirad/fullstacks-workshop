@@ -1,0 +1,21 @@
+@import 'variables';
+
+.section {
+  background-image: linear-gradient(to bottom, $app-bg, $core-bg);
+  color: $white;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.view {
+  width: 50%;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.screen {
+  background-image: url('/images/console.png');
+  background-size: cover;
+}

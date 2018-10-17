@@ -70,6 +70,7 @@ const config = {
           },
         ],
       },
+      { test: /\.(mp3|m4a)$/, exclude: /node_modules/, loader: require.resolve('file-loader') },
     ],
   },
   plugins: [

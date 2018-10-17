@@ -7,8 +7,8 @@ const cx = classNames.bind(styles);
 
 const resolveSprite = icon => `svg/stacks-sprite.svg#${icon}`;
 
-const Stack = ({ icon, className }) => (
-  <svg className={cx('root', className)}>
+const Stack = ({ icon, className, hover }) => (
+  <svg className={cx('root', { hover }, className)}>
     <use href={resolveSprite(icon)} />
   </svg>
 );
