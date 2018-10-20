@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import About from './About';
 import { Heading } from '../Heading';
-import { Stacks } from '../Stacks';
-import { P } from '../P';
 import { SolidButton } from '../SolidButton';
 import GeneralPanel from './GeneralPanel';
 
@@ -15,7 +15,6 @@ const stacks = [
   { icon: 'unreal' },
   { icon: 'substance' },
 ];
-
 
 const Container = styled('div')`
   display: flex;
@@ -36,13 +35,8 @@ const MorePanel = styled('div')`
 
 const Scroller = styled('div')`
   overflow: auto;
-  padding: 2em 2em 10px;
+  padding: 1em 2em 10px;
   height: 100%;
-`;
-
-const About = styled('div')`
-  height: 100%;
-  padding-bottom: 46px;
 `;
 
 const ActionBar = styled('div')`
@@ -61,18 +55,13 @@ const ActionBar = styled('div')`
     width: calc(100% - 4px);
     height: 15px;
     content: ' ';
-    background-image: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
+    background-image: linear-gradient(to top, rgba(255,255,255,0.5), rgba(255,255,255,0));
   }
 `;
 
-const Prerequisite = ({ children }) => (
-  <div>
-    {children}
-  </div>
-);
-
-const PrerequisitesContainer = styled('div')`
-  margin-bottom: 1em;
+const TabPanelContainer = styled('div')`
+  height: 100%;
+  padding-bottom: 46px;
 `;
 
 class Workshop extends Component {
@@ -91,20 +80,26 @@ class Workshop extends Component {
           skill="Beginner"
         />
         <MorePanel>
-          <About>
-            <Scroller>
-              <Heading tag="h4">Description:</Heading>
-              <P>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</P>
-              <Heading tag="h4">Prerequisites:</Heading>
-              <PrerequisitesContainer>
-                <Prerequisite>Basic Git</Prerequisite>
-                <Prerequisite>Advanced HTML</Prerequisite>
-                <Prerequisite>Advanced CSS</Prerequisite>
-              </PrerequisitesContainer>
-              <Heading tag="h4">Skill Covered in this Course:</Heading>
-              <Stacks stacks={stacks} />
-            </Scroller>
-          </About>
+          <Tabs>
+            <TabList>
+              <Tab>About</Tab>
+              <Tab>Curriculum</Tab>
+            </TabList>
+            <TabPanel>
+              <TabPanelContainer>
+                <Scroller>
+                  <About stacks={stacks} />
+                </Scroller>
+              </TabPanelContainer>
+            </TabPanel>
+            <TabPanel>
+              <TabPanelContainer>
+                <Scroller>
+                  Curriculum
+                </Scroller>
+              </TabPanelContainer>
+            </TabPanel>
+          </Tabs>
           <ActionBar>
             <Signup>Signup</Signup>
           </ActionBar>

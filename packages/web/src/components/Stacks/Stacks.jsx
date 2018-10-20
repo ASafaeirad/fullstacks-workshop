@@ -8,7 +8,10 @@ const cx = classNames.bind(styles);
 
 const Stacks = ({ stacks, hover, className }) => (
   <div className={cx('root', className)}>
-    {stacks.map(stack => <Stack key={stack.icon} hover={hover} icon={stack.icon} />)}
+    {stacks.length > 0
+      ? stacks.map(stack => <Stack key={stack.icon} hover={hover} icon={stack.icon} />)
+      : 'Nothing'
+     }
   </div>
 );
 
