@@ -54,8 +54,8 @@ const Text = styled('span')`
   }
 `;
 
-const SectionIndecator = ({ name, color, gap, active, size, right }) => (
-  <Container active={active}>
+const SectionIndecator = ({ name, color, gap, active, size, right, onSelect }) => (
+  <Container active={active} onClick={onSelect}>
     <Text color={color} right={right} active={active}>
       <span>{name}</span>
     </Text>
@@ -80,9 +80,19 @@ SectionIndecator.defaultProps = {
   right: false,
 };
 
-const Indicator = ({ current, sections, className, size, gap, right }) => (
+const Indicator = ({ current, sections, className, size, gap, right, onSelect }) => (
   <div className={cx('root', className)} style={{ width: size }}>
-    {sections && sections.map((section, index) => <SectionIndecator key={section} right={right} active={current === index} name={section} gap={gap} size={size} />)}
+    {sections && sections.map((section, index) => (
+      <SectionIndecator
+        key={section}
+        onSelect={() => onSelect(index)}
+        right={right}
+        active={current === index}
+        name={section}
+        gap={gap}
+        size={size}
+      />
+    ))}
   </div>
 );
 

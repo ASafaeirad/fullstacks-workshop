@@ -9,7 +9,6 @@ const stacks = [
   { icon: 'maya' },
   { icon: 'unreal' },
   { icon: 'substance' },
-  { icon: 'substance' },
 ];
 
 const Game = () => (
