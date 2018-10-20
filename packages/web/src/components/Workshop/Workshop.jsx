@@ -1,14 +1,36 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import About from './About';
-import { Heading } from '../Heading';
-import { SolidButton } from '../SolidButton';
 import GeneralPanel from './GeneralPanel';
+import MorePanel from './MorePanel';
 
-const Signup = styled(SolidButton)`
-  background-color: #67f;
-`;
+const curriculum = [
+  {
+    title: 'Introduction',
+    lessons: [
+      'Lesson 1',
+      'Lesson 2',
+      'Lesson 3',
+      'Lesson 4',
+    ],
+  },
+  {
+    title: 'Game Design',
+    lessons: [
+      'Lesson 1',
+      'Lesson 4',
+    ],
+  },
+  {
+    title: 'Programming',
+    lessons: [
+      'Lesson 1',
+      'Lesson 2',
+      'Lesson 3',
+      'Lesson 4',
+      'Lesson 5',
+    ],
+  },
+];
 
 const stacks = [
   { icon: 'maya' },
@@ -26,44 +48,6 @@ const Container = styled('div')`
   overflow: hidden;
 `;
 
-const MorePanel = styled('div')`
-  background-color: #fff;
-  color: #222;
-  flex: 1;
-  position: relative;
-`;
-
-const Scroller = styled('div')`
-  overflow: auto;
-  padding: 1em 2em 10px;
-  height: 100%;
-`;
-
-const ActionBar = styled('div')`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 5 6px;
-  width: 100%;
-  text-align: end;
-  background-color: white;
-
-  &::after {
-    position: absolute;
-    top: -15px;
-    left: 0;
-    width: calc(100% - 4px);
-    height: 15px;
-    content: ' ';
-    background-image: linear-gradient(to top, rgba(255,255,255,0.5), rgba(255,255,255,0));
-  }
-`;
-
-const TabPanelContainer = styled('div')`
-  height: 100%;
-  padding-bottom: 46px;
-`;
-
 class Workshop extends Component {
   state = {
   }
@@ -79,31 +63,7 @@ class Workshop extends Component {
           students={20}
           skill="Beginner"
         />
-        <MorePanel>
-          <Tabs>
-            <TabList>
-              <Tab>About</Tab>
-              <Tab>Curriculum</Tab>
-            </TabList>
-            <TabPanel>
-              <TabPanelContainer>
-                <Scroller>
-                  <About stacks={stacks} />
-                </Scroller>
-              </TabPanelContainer>
-            </TabPanel>
-            <TabPanel>
-              <TabPanelContainer>
-                <Scroller>
-                  Curriculum
-                </Scroller>
-              </TabPanelContainer>
-            </TabPanel>
-          </Tabs>
-          <ActionBar>
-            <Signup>Signup</Signup>
-          </ActionBar>
-        </MorePanel>
+        <MorePanel stacks={stacks} curriculum={curriculum} />
       </Container>
     );
   }

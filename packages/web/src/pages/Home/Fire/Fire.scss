@@ -3,7 +3,8 @@
 $fire-color: #caa584;
 
 .root {
-  height: 100vh;
+  height: calc(100vh + 1px);
+  top: -1px;
   background-image: url('/images/fire.png');
   background-size: cover;
   background-position: 50% 100%;
@@ -23,7 +24,7 @@ $fire-color: #caa584;
   position: absolute;
   bottom: 0;
   opacity: .8;
-  font-size: 1.2em;
+  font-size: 1em;
   left: 50%;
   transform: translateX(-50%);
   font-weight: 400;

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
-import { arrayOf, shape } from 'prop-types';
+import { arrayOf, shape, string } from 'prop-types';
 import { Heading } from '../Heading';
 import { P } from '../P';
 import { Stacks } from '../Stacks';
@@ -32,10 +32,10 @@ Prerequisites.defaultProps = {
   prerequisites: [],
 };
 
-const About = ({ stacks, prerequisites }) => (
+const About = ({ stacks, prerequisites, description }) => (
   <Fragment>
     <Heading tag="h4">Description:</Heading>
-    <P>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</P>
+    <P>{description}</P>
     <Heading tag="h4">Prerequisites:</Heading>
     <Prerequisites prerequisites={prerequisites} />
     <Heading tag="h4">Skill Covered in this Course:</Heading>
@@ -46,6 +46,7 @@ const About = ({ stacks, prerequisites }) => (
 About.propTypes = {
   stacks: arrayOf(shape({})),
   prerequisites: arrayOf(shape({})),
+  description: string.isRequired,
 };
 
 About.defaultProps = {

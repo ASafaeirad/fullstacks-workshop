@@ -6,7 +6,7 @@ import { Workshops } from '../Workshops';
 const App = () => (
   <Switch>
     <Route exact path="/" component={Home} />
-    <Route exact path="/wokshops" component={Workshops} />
+    <Route exact path="/workshops" component={Workshops} />
   </Switch>
 );
 
