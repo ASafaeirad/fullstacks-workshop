@@ -1,42 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { string, arrayOf, shape, number } from 'prop-types';
 import GeneralPanel from './GeneralPanel';
 import MorePanel from './MorePanel';
-
-const curriculum = [
-  {
-    title: 'Introduction',
-    lessons: [
-      'Lesson 1',
-      'Lesson 2',
-      'Lesson 3',
-      'Lesson 4',
-    ],
-  },
-  {
-    title: 'Game Design',
-    lessons: [
-      'Lesson 1',
-      'Lesson 4',
-    ],
-  },
-  {
-    title: 'Programming',
-    lessons: [
-      'Lesson 1',
-      'Lesson 2',
-      'Lesson 3',
-      'Lesson 4',
-      'Lesson 5',
-    ],
-  },
-];
-
-const stacks = [
-  { icon: 'maya' },
-  { icon: 'unreal' },
-  { icon: 'substance' },
-];
 
 const Container = styled('div')`
   display: flex;
@@ -49,21 +15,39 @@ const Container = styled('div')`
 `;
 
 class Workshop extends Component {
+  static propTypes = {
+    title: string.isRequired,
+    stacks: arrayOf(shape({})).isRequired,
+    curriculum: arrayOf(shape({})).isRequired,
+    lecturer: string.isRequired,
+    thumbnail: string.isRequired,
+    skill: string.isRequired,
+    time: number.isRequired,
+    students: number.isRequired,
+    description: string.isRequired,
+  }
+
   state = {
   }
 
   render() {
+    const { title, stacks, curriculum, lecturer, thumbnail, time, students, skill, description } = this.props;
+
     return (
       <Container>
         <GeneralPanel
-          lecturer={{ image: 'alireza.png', name: 'Alireza', organization: 'Frontendmonster' }}
-          title="Game Development Introduction"
-          thumbnail="game.png"
-          time={10}
-          students={20}
-          skill="Beginner"
+          lecturer={lecturer}
+          title={title}
+          thumbnail={thumbnail}
+          time={time}
+          students={students}
+          skill={skill}
         />
-        <MorePanel stacks={stacks} curriculum={curriculum} />
+        <MorePanel
+          description={description}
+          stacks={stacks}
+          curriculum={curriculum}
+        />
       </Container>
     );
   }

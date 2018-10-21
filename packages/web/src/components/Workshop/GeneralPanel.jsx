@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Heading } from '../Heading';
 import { Lecturer } from '../Lecturer';
 
@@ -26,7 +27,7 @@ const GeneralContent = styled('div')`
   display: flex;
   flex: 1;
   flex-flow: column nowrap;
-  padding: 1.5em;
+  padding: 1.5em 1.5em 1em;
   min-height: 240px;
   justify-content: space-between;
 `;
@@ -37,7 +38,24 @@ const WorkshopMetadata = styled('div')`
   margin-top: 10px;
 `;
 
-const Metadata = styled('span')``;
+const MetadataContainer = styled('div')`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  color: #7282ff;
+`;
+
+const MetadataValue = styled('div')`
+  margin-top: 2px;
+  position: relative;
+`;
+
+const Metadata = ({ value, icon }) => (
+  <MetadataContainer>
+    <FontAwesomeIcon icon={icon} size="sm" />
+    <MetadataValue>{value}</MetadataValue>
+  </MetadataContainer>
+);
 
 
 const GeneralPanel = ({ thumbnail, title, lecturer, time, students, skill }) => (
@@ -49,9 +67,9 @@ const GeneralPanel = ({ thumbnail, title, lecturer, time, students, skill }) => 
       <Heading tag="h3" size="2em">{title}</Heading>
       <Lecturer {...lecturer} />
       <WorkshopMetadata>
-        <Metadata>{time}H</Metadata>
-        <Metadata>{students}</Metadata>
-        <Metadata>{skill}</Metadata>
+        <Metadata icon="clock" value={`${time}H`} />
+        <Metadata icon="users" value={students} />
+        <Metadata icon="graduation-cap" value={skill} />
       </WorkshopMetadata>
     </GeneralContent>
   </Container>

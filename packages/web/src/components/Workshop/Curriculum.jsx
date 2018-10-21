@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { string, arrayOf, shape } from 'prop-types';
+import { string, arrayOf } from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Heading } from '../Heading';
 

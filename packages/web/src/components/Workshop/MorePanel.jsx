@@ -1,6 +1,6 @@
 import React from 'react';
+import { arrayOf, shape, string } from 'prop-types';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
-import { arrayOf, shape } from 'prop-types';
 import styled from 'styled-components';
 import { SolidButton } from '../SolidButton';
 import About from './About';
@@ -49,7 +49,7 @@ const TabPanelContainer = styled('div')`
   padding-bottom: 46px;
 `;
 
-const MorePanel = ({ stacks, curriculum }) => (
+const MorePanel = ({ stacks, curriculum, description }) => (
   <Container>
     <Tabs>
       <TabList>
@@ -60,7 +60,7 @@ const MorePanel = ({ stacks, curriculum }) => (
         <TabPanelContainer>
           <Scroller>
             <About
-              description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+              description={description}
               stacks={stacks}
             />
           </Scroller>
@@ -83,6 +83,7 @@ const MorePanel = ({ stacks, curriculum }) => (
 MorePanel.propTypes = {
   stacks: arrayOf(shape({})).isRequired,
   curriculum: arrayOf(shape({})).isRequired,
+  description: string.isRequired,
 };
 
 export default MorePanel;
