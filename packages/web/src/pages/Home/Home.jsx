@@ -32,7 +32,7 @@ class Home extends PureComponent {
 
   pageOnChange = (number) => {
     this.setState({ page: number - 1 });
-    this.audio.volume = (number / 5) ** 1.5;
+    this.audio.volume = (number / 16) ** 1.4;
   };
 
   componentDidMount() {
