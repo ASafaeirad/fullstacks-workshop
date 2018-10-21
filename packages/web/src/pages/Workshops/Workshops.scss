@@ -2,7 +2,7 @@
 
 .container {
   color: $text-light;
-  background-color: $game-bg;
+  background-image: linear-gradient(to bottom, $app-bg, $game-bg);
   display: flex;
   width: 100%;
   flex-flow: column nowrap;

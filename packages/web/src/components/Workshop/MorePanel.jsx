@@ -7,7 +7,7 @@ import About from './About';
 import Curriculum from './Curriculum';
 
 const Container = styled('div')`
-  background-color: #fff;
+  background-color: #f5f2eb;
   color: #222;
   flex: 1;
   position: relative;
@@ -28,10 +28,8 @@ const ActionBar = styled('div')`
   position: absolute;
   bottom: 0;
   right: 0;
-  height: 5 6px;
   width: 100%;
   text-align: end;
-  background-color: white;
 
   &::after {
     position: absolute;
@@ -40,7 +38,7 @@ const ActionBar = styled('div')`
     width: calc(100% - 4px);
     height: 15px;
     content: ' ';
-    background-image: linear-gradient(to top, rgba(255,255,255,0.5), rgba(255,255,255,0));
+    background-image: linear-gradient(to top, rgba(245, 242, 235, 0.5), rgba(245, 242, 235, 0));
   }
 `;
 

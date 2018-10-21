@@ -5,7 +5,7 @@ import { Heading } from '../Heading';
 import { Lecturer } from '../Lecturer';
 
 const Container = styled('div')`
-  background-color: #222;
+  background-color: #121114;
   color: #fff;
   width: 350px;
   display: flex;
