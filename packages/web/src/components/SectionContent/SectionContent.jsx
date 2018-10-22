@@ -1,5 +1,6 @@
 import React from 'react';
 import { string, arrayOf, shape } from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from './SectionContent.scss';
 import { Button } from '../Button';
@@ -11,7 +12,9 @@ const cx = classNames.bind(styles);
 const SectionContent = ({ title, info, stacks, className }) => (
   <div className={cx('root', className)}>
     <SectionHeading title={title} info={info} />
-    <Button>Take a look</Button>
+    <NavLink to="/workshops">
+      <Button>Take a look</Button>
+    </NavLink>
     <Stacks className={cx('stacks')} hover stacks={stacks} />
   </div>
 );

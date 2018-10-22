@@ -1,18 +1,22 @@
-/* eslint-disable react/button-has-type */
-import React from 'react';
-import classNames from 'classnames/bind';
-import { string } from 'prop-types';
-import styles from './Button.scss';
+import styled from 'styled-components';
 
-const cx = classNames.bind(styles);
+const Button = styled('button')`
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #fff;
+  width: 180px;
+  min-height: 45px;
+  transition: background-color 500ms, color 500ms;
 
-const Button = ({ className, type, ...rest }) => (
-  <button type={type} className={cx('root', className)} {...rest} />
-);
+  &:hover {
+    background-color: #fff;
+    color: #222;
+  }
 
-Button.propTypes = {
-  type: string,
-};
+  &:focus {
+    outline: none;
+  }
+`;
 
 Button.defaultProps = {
   type: 'Button',

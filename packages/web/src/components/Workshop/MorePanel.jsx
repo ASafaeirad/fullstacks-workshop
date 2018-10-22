@@ -16,6 +16,10 @@ const Container = styled('div')`
 const Signup = styled(SolidButton)`
   font-weight: 500;
   background-color: #67f;
+
+  &:hover {
+    background-color: #78f;
+  }
 `;
 
 const Scroller = styled('div')`
