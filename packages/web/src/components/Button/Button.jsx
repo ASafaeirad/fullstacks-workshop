@@ -7,6 +7,7 @@ const Button = styled('button')`
   width: 180px;
   min-height: 45px;
   transition: background-color 500ms, color 500ms;
+  cursor: pointer;
 
   &:hover {
     background-color: #fff;

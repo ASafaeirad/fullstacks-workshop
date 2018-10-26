@@ -7,48 +7,64 @@ const workshopSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  icon: {
-    type: String,
-    required: true,
-  },
+
   title: {
     required: true,
     type: String,
   },
-  techs: [{
+
+  description: {
+    type: String,
+    required: true,
+  },
+
+  time: {
+    type: Number,
+    required: true,
+  },
+
+  students: {
+    type: Number,
+    default: 0,
+  },
+
+  stacks: [{
     name: String,
     icon: String,
   }],
+
   skill: {
     type: String,
     required: true,
     enum: ['beginner', 'advanced', 'expert'],
   },
+
   prerequisites: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Workshop',
   }],
-  expects: [{
-    type: String,
-    default: [],
-  }],
-  noExpects: [{
-    type: String,
-    default: [],
-  }],
-  curriculum: [{
-    slug: {
-      type: String,
-      lowercase: true,
-      required: true,
-      unique: true,
-    },
 
+  curriculum: [{
     title: {
       type: String,
       required: true,
     },
+
+    lessons: [{
+      type: String,
+    }],
   }],
+
+  lecturer: {
+    image: String,
+    name: String,
+    organization: String,
+  },
+
+  thumbnail: {
+    type: String,
+    required: true,
+  },
 });
 
 const Workshop = mongoose.model('Workshop', workshopSchema);

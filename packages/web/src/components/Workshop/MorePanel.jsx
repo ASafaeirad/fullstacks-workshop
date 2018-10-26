@@ -13,15 +13,6 @@ const Container = styled('div')`
   position: relative;
 `;
 
-const Signup = styled(SolidButton)`
-  font-weight: 500;
-  background-color: #67f;
-
-  &:hover {
-    background-color: #78f;
-  }
-`;
-
 const Scroller = styled('div')`
   overflow: auto;
   padding: 1em 2em 10px;
@@ -77,7 +68,7 @@ const MorePanel = ({ stacks, curriculum, description }) => (
       </TabPanel>
     </Tabs>
     <ActionBar>
-      <Signup>Signup</Signup>
+      <SolidButton>Signup</SolidButton>
     </ActionBar>
   </Container>
 );

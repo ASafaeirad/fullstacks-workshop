@@ -1,10 +1,16 @@
 export { Button } from './Button';
+export { Form } from './Form';
 export { Heading } from './Heading';
 export { Indicator } from './Indicator';
+export { Input } from './Input';
+export { InputField } from './InputField';
+export { InputTextArea } from './InputTextArea';
+export { P } from './P';
 export { Screen } from './Screen';
 export { Section } from './Section';
 export { SectionContent } from './SectionContent';
+export { SolidButton } from './SolidButton';
+export { TextArea } from './TextArea';
 export { Stack } from './Stack';
 export { Stacks } from './Stacks';
 export { Workshop } from './Workshop';
-export { P } from './P';

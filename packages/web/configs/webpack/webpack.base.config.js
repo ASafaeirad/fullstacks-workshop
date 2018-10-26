@@ -33,7 +33,32 @@ const config = {
         },
       ),
       {
-        test: /\.scss$/, // Change .css to .scss
+        test: /\.css$/,
+        use: [
+          require.resolve('style-loader'),
+          require.resolve('css-loader'),
+          {
+            loader: require.resolve('postcss-loader'),
+            options: {
+              ident: 'postcss',
+              plugins: () => [
+                require('postcss-flexbugs-fixes'),
+                autoprefixer({
+                  browsers: [
+                    '>1%',
+                    'last 4 versions',
+                    'Firefox ESR',
+                    'not ie < 9',
+                  ],
+                  flexbox: 'no-2009',
+                }),
+              ],
+            },
+          },
+        ],
+      },
+      {
+        test: /\.scss$/,
         use: [
           require.resolve('style-loader'),
           {

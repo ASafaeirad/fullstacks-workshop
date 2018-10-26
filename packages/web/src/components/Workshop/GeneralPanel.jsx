@@ -1,4 +1,5 @@
 import React from 'react';
+import { string } from 'prop-types';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Heading } from '../Heading';
@@ -57,6 +58,10 @@ const Metadata = ({ value, icon }) => (
   </MetadataContainer>
 );
 
+Metadata.propTypes = {
+  value: string.isRequired,
+  icon: string.isRequired,
+};
 
 const GeneralPanel = ({ thumbnail, title, lecturer, time, students, skill }) => (
   <Container>

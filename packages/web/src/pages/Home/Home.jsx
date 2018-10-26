@@ -49,6 +49,11 @@ class Home extends PureComponent {
     this.audio.volume = 0;
   }
 
+  componentWillUnmount() {
+    this.audio.pause();
+    this.audio = null;
+  }
+
   onSelect = (index) => {
     this.goToPage(index);
   }
