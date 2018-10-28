@@ -10,6 +10,7 @@ const Container = styled('div')`
   color: #fff;
   width: 350px;
   display: flex;
+  font-family: Rajdhani;
   flex-flow: column nowrap;
 `;
 

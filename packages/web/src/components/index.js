@@ -1,4 +1,5 @@
 export { Button } from './Button';
+export { DropdownField } from './DropdownField';
 export { Form } from './Form';
 export { Heading } from './Heading';
 export { Indicator } from './Indicator';
@@ -10,7 +11,8 @@ export { Screen } from './Screen';
 export { Section } from './Section';
 export { SectionContent } from './SectionContent';
 export { SolidButton } from './SolidButton';
-export { TextArea } from './TextArea';
 export { Stack } from './Stack';
 export { Stacks } from './Stacks';
+export { TextArea } from './TextArea';
+export { TextAreaField } from './TextAreaField';
 export { Workshop } from './Workshop';

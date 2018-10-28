@@ -1,6 +1,6 @@
 import React from 'react';
 import { number, bool, arrayOf, string } from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import classname from 'classnames/bind';
 import styles from './Indicator.scss';
 
@@ -9,11 +9,15 @@ const cx = classname.bind(styles);
 const Circle = styled('div')`
   width: 0;
   height: 0;
+  position: relative;
   border-style: solid;
   border-width: ${props => `${props.size * 0.87}px ${props.size / 2}px 0 ${props.size / 2}px`};
   border-color: ${props => props.color} transparent transparent transparent;
   margin-bottom: ${props => props.gap}px;
-  ${props => props.active && 'transform: scale(1.5) rotate(90deg)'};
+  ${props => props.active && css`
+    transform: scale(1.4) rotate(90deg);
+    right: 1px;
+  `};
   transition: transform 500ms;
 `;
 
@@ -30,6 +34,8 @@ const Container = styled('div')`
 `;
 
 const Text = styled('span')`
+  font-family: Rajdhani;
+  font-size: 14px;
   overflow: hidden;
   text-align: right;
   position: absolute;

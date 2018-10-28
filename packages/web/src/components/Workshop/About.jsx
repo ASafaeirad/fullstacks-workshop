@@ -12,6 +12,7 @@ const Prerequisite = ({ children }) => (
 );
 
 const PrerequisitesContainer = styled('div')`
+  font-family: Rajdhani;
   margin-bottom: 1em;
 `;
 

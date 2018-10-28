@@ -1,7 +1,7 @@
 import React from 'react';
-import { Form, Label } from 'semantic-ui-react';
+import { TextArea, Form, Label } from 'semantic-ui-react';
 
-const InputField = ({
+const TextAreaField = ({
   field,
   form: { touched, errors },
   ...props
@@ -12,7 +12,7 @@ const InputField = ({
       inline
       error={showError}
     >
-      <Form.Input
+      <Form.TextArea
         {...field}
         {...props}
       />
@@ -21,4 +21,4 @@ const InputField = ({
   );
 };
 
-export default InputField;
+export default TextAreaField;

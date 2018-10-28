@@ -1,20 +1,42 @@
 import React from 'react';
-import { string } from 'prop-types';
-import classNames from 'classnames/bind';
-import styles from './Stack.scss';
-
-const cx = classNames.bind(styles);
+import { string, bool } from 'prop-types';
+import styled, { css } from 'styled-components';
 
 const resolveSprite = icon => `svg/stacks-sprite.svg#${icon}`;
 
-const Stack = ({ icon, className, hover }) => (
-  <svg className={cx('root', { hover }, className)}>
+const Svg = styled('svg')`
+  fill: currentColor;
+  height: 25px;
+  transition: opacity 500ms;
+  width: 100%;
+  font-size: .8em;
+
+  margin-bottom: 0;
+  user-select: none;
+  cursor: pointer;
+
+  ${props => props.hover && css`
+    opacity: .2;
+
+    &:hover {
+      opacity: 1;
+    }
+  `};
+`;
+
+const Stack = ({ icon, hover, className }) => (
+  <Svg hover={hover} className={className}>
     <use href={resolveSprite(icon)} />
-  </svg>
+  </Svg>
 );
 
 Stack.propTypes = {
   icon: string.isRequired,
+  hover: bool,
+};
+
+Stack.defaultProps = {
+  hover: false,
 };
 
 export default Stack;
