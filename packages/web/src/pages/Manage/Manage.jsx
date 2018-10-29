@@ -246,6 +246,7 @@ class AddWorkshop extends React.PureComponent {
               />
             </FormGroup>
             <Segment>
+              <Header>Curriculum</Header>
               <Curriculum
                 curriculum={curriculum}
                 editable
@@ -274,6 +275,18 @@ class AddWorkshop extends React.PureComponent {
                 }}
                 onAddSection={(e) => {
                   curriculum.push({ title: e.value, lessons: [] });
+                  setFieldValue('curriculum', curriculum);
+                }}
+                onReorderLesson={(e) => {
+                  const tmp = curriculum[e.sectionIndex].lessons[e.from];
+                  curriculum[e.sectionIndex].lessons[e.from] = curriculum[e.sectionIndex].lessons[e.to];
+                  curriculum[e.sectionIndex].lessons[e.to] = tmp;
+                  setFieldValue('curriculum', curriculum);
+                }}
+                onReorderSection={(e) => {
+                  const tmp = curriculum[e.from];
+                  curriculum[e.from] = curriculum[e.to];
+                  curriculum[e.to] = tmp;
                   setFieldValue('curriculum', curriculum);
                 }}
               />
