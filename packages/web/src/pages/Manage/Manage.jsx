@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import classNames from 'classnames/bind';
-import { Button, Form, Message, Header, Icon, Container, Label, Image, FormGroup, Segment, Grid } from 'semantic-ui-react';
+import { Button, Form, Message, Header, Icon, Container, Label, Image, FormGroup, Segment, Grid, Dropdown } from 'semantic-ui-react';
 import { Formik, Field } from 'formik';
-import { object, string } from 'yup';
+import { object, string, array, number } from 'yup';
 import { func } from 'prop-types';
-import { InputField, DropdownField, Stack, TextAreaField } from '../../components';
+import { InputField, DropdownField, Stack, TextAreaField, Curriculum } from '../../components';
 import styles from './Manage.scss';
 
 const cx = classNames.bind(styles);
@@ -17,6 +17,36 @@ const Manage = () => (
     />
   </Container>
 );
+
+const curriculum = [
+  {
+    title: 'Introduction',
+    lessons: [
+      'Lesson 1',
+      'Lesson 2',
+      'Lesson 3',
+      'Lesson 4',
+    ],
+  },
+  {
+    title: 'Game Design',
+    lessons: [
+      'Lesson 1',
+      'Lesson 4',
+    ],
+  },
+  {
+    title: 'Programming',
+    lessons: [
+      'Lesson 1',
+      'Lesson 2',
+      'Lesson 3',
+      'Lesson 4',
+      'Lesson 5',
+    ],
+  },
+];
+
 
 const stacksOption = [
   {
@@ -41,6 +71,28 @@ const lecturersOption = [
   },
 ];
 
+const skillOptions = [
+  {
+    text: 'Beginner',
+    value: 'Beginner',
+  },
+  {
+    text: 'Advanced',
+    value: 'Advanced',
+  },
+  {
+    text: 'Expert',
+    value: 'Expert',
+  },
+];
+
+const prerequisitesOptions = [
+  {
+    text: 'React',
+    value: 'react',
+  },
+];
+
 class AddWorkshop extends React.PureComponent {
   state = {
     thumb: null,
@@ -57,11 +109,18 @@ class AddWorkshop extends React.PureComponent {
           description: '',
           lecturer: [],
           stacks: [],
+          prerequisites: [],
+          skill: null,
+          time: 12,
         }}
         validationSchema={
       object().shape({
         title: string().required('Required'),
         description: string().required('Required'),
+        lecturer: array(string()).required('Required'),
+        stacks: array(string()),
+        skill: string().required('Required'),
+        time: number('Must be a number').required('Required'),
       })
     }
         onSubmit={async (values, { setErrors }) => {
@@ -158,6 +217,67 @@ class AddWorkshop extends React.PureComponent {
               defaultValue={values.lecturer ? undefined : []}
               options={lecturersOption}
             />
+            <Field
+              label="Prerequisites"
+              id="prerequisites"
+              name="prerequisites"
+              component={DropdownField}
+              fluid
+              multiple
+              search
+              selection
+              clearable
+              defaultValue={values.prerequisites ? undefined : []}
+              options={prerequisitesOptions}
+            />
+            <FormGroup widths="equal">
+              <Field
+                label="Time"
+                name="time"
+                component={InputField}
+                fluid
+              />
+              <Field
+                label="Skill"
+                name="skill"
+                component={DropdownField}
+                options={skillOptions}
+                selection
+              />
+            </FormGroup>
+            <Segment>
+              <Curriculum
+                curriculum={curriculum}
+                editable
+                addLesson={this.addLesson}
+                removeLesson={this.removeLesson}
+                addSection={this.addSection}
+                onRemoveLesson={(e) => {
+                  curriculum[e.sectionIndex].lessons.splice(e.index, 1);
+                  setFieldValue('curriculum', curriculum);
+                }}
+                onSubmit={(e) => {
+                  curriculum[e.sectionIndex].lessons[e.index] = e.value;
+                  setFieldValue('curriculum', curriculum);
+                }}
+                onAddLesson={(e) => {
+                  curriculum[e.sectionIndex].lessons.push(e.value);
+                  setFieldValue('curriculum', curriculum);
+                }}
+                onTitleChange={(e) => {
+                  curriculum[e.sectionIndex].title = e.value;
+                  setFieldValue('curriculum', curriculum);
+                }}
+                onSectionRemove={(e) => {
+                  curriculum.splice(e.sectionIndex, 1);
+                  setFieldValue('curriculum', curriculum);
+                }}
+                onAddSection={(e) => {
+                  curriculum.push({ title: e.value, lessons: [] });
+                  setFieldValue('curriculum', curriculum);
+                }}
+              />
+            </Segment>
             <Button primary type="submit" onClick={handleSubmit}>Submit</Button>
             <Button type="reset" onClick={handleReset}>Reset</Button>
           </Form>

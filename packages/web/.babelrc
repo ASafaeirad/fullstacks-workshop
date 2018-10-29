@@ -14,10 +14,12 @@
     "development": {
       "presets": [
         ["@babel/preset-react", { "development": true} ]
-      ],
-      "plugins": [
-        ["react-hot-loader/babel"]
       ]
+      // TODO: Incompatibility with React Hooks
+      // https://github.com/gaearon/react-hot-loader/issues/1088
+      // "plugins": [
+      //   ["react-hot-loader/babel"]
+      // ]
     }
   }
 }

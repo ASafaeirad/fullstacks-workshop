@@ -4,7 +4,7 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import styled from 'styled-components';
 import { SolidButton } from '../SolidButton';
 import About from './About';
-import Curriculum from './Curriculum';
+import { Curriculum } from '../Curriculum';
 
 const Container = styled('div')`
   background-color: #f5f2eb;
