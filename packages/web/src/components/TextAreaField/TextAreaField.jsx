@@ -9,7 +9,6 @@ const TextAreaField = ({
   const showError = Boolean(touched[field.name] && errors[field.name]);
   return (
     <Form.Field
-      inline
       error={showError}
     >
       <Form.TextArea

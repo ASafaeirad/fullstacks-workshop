@@ -9,7 +9,6 @@ const InputField = ({
   const showError = Boolean(touched[field.name] && errors[field.name]);
   return (
     <Form.Field
-      inline
       error={showError}
     >
       <Form.Input

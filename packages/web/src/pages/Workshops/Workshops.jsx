@@ -41,7 +41,7 @@ const workshop = {
     { icon: 'substance' },
   ],
 
-  lecturer: { image: 'alireza.png', name: 'Alireza', organization: 'Frontendmonster' },
+  lecturer: { image: '/images/lecturers/alireza.png', name: 'Alireza', organization: 'Frontendmonster' },
 
   title: 'Game Development Introduction',
   thumbnail: 'game.png',

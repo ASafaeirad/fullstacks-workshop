@@ -27,7 +27,7 @@ const Organization = styled('span')`
 
 const Lecturer = ({ name, image, organization }) => (
   <Container>
-    <Avatar src={`/images/lecturer/${image}`} />
+    <Avatar src={image} />
     <LecturerInfo>
       <Name>{name}</Name>
       <Organization>{organization}</Organization>

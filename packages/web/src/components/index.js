@@ -16,4 +16,5 @@ export { Stacks } from './Stacks';
 export { TextArea } from './TextArea';
 export { TextAreaField } from './TextAreaField';
 export { Workshop } from './Workshop';
-export { Curriculum } from './Curriculum';
+export { Curriculum, EditableCurriculum } from './Curriculum';
+export { WorkshopForm } from './WorkshopForm';

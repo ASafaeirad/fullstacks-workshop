@@ -1,11 +1,12 @@
 import mongoose from 'mongoose';
+import slugify from 'slugify';
 
 const workshopSchema = new mongoose.Schema({
   slug: {
     type: String,
     lowercase: true,
     required: true,
-    unique: true,
+    unique: [true, 'Should be unique'],
   },
 
   title: {
@@ -29,8 +30,8 @@ const workshopSchema = new mongoose.Schema({
   },
 
   stacks: [{
-    name: String,
-    icon: String,
+    type: String,
+    default: [],
   }],
 
   skill: {
@@ -55,16 +56,21 @@ const workshopSchema = new mongoose.Schema({
     }],
   }],
 
-  lecturer: {
-    image: String,
-    name: String,
-    organization: String,
-  },
+  lecturers: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Lecturer',
+  }],
 
   thumbnail: {
     type: String,
-    required: true,
   },
+});
+
+workshopSchema.pre('validate', function (next) {
+  if (this.isNew && this.slug) {
+    this.slug = slugify(this.slug);
+  }
+  next();
 });
 
 const Workshop = mongoose.model('Workshop', workshopSchema);

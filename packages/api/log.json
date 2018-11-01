@@ -1,0 +1,45 @@
+{
+  "title": "String",
+  "description": "Desc",
+  "lecturers": [
+    "Alireza"
+  ],
+  "stacks": [
+    "Unity",
+    "React"
+  ],
+  "prerequisites": [
+    "react"
+  ],
+  "curriculum": [
+    {
+      "title": "Game Design",
+      "lessons": [
+        "Lesson 1",
+        "Lesson 4"
+      ]
+    },
+    {
+      "title": "Introduction",
+      "lessons": [
+        "Lesson 1",
+        "Lesson 2",
+        "Lesson 3",
+        "Lesson 4"
+      ]
+    },
+    {
+      "title": "Programming",
+      "lessons": [
+        "Lesson 1",
+        "Lesson 2",
+        "Lesson 3",
+        "Lesson 4",
+        "Lesson 5"
+      ]
+    }
+  ],
+  "skill": "beginner",
+  "time": 12,
+  "thumbnail": {}
+}
