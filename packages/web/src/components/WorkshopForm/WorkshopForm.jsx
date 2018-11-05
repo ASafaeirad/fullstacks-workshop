@@ -1,4 +1,4 @@
-import { FastField, Formik } from 'formik';
+import { FastField, Field, Formik } from 'formik';
 import { func } from 'prop-types';
 import React, { useState } from 'react';
 import { Button, Form, FormGroup, Grid, Header, Icon, Image, Segment } from 'semantic-ui-react';
@@ -6,23 +6,7 @@ import { array, mixed, number, object, string } from 'yup';
 import { Curriculum, EditableCurriculum } from '../Curriculum';
 import { DropdownField } from '../DropdownField';
 import { InputField } from '../InputField';
-import { Stack } from '../Stack';
 import { TextAreaField } from '../TextAreaField';
-
-const stacksOption = [
-  {
-    key: 'Unity',
-    value: 'Unity',
-    text: 'Unity',
-    content: <Stack icon="unreal" />,
-  },
-  {
-    key: 'React',
-    value: 'React',
-    text: 'React',
-    content: <Stack icon="react" />,
-  },
-];
 
 const skillOptions = [
   {
@@ -39,7 +23,7 @@ const skillOptions = [
   },
 ];
 
-const WorkshopForm = ({ submit, prerequisites, lecturers }) => {
+const WorkshopForm = ({ submit, prerequisites, lecturers, stacks, fetchingLecturers, fetchingWorkshops, fetchingStacks }) => {
   const [curriculum, setCurriculum] = useState([]);
   const [thumbnail, setThumbnail] = useState();
   const [thumbsrc, setThumbsrc] = useState();
@@ -148,7 +132,7 @@ const WorkshopForm = ({ submit, prerequisites, lecturers }) => {
           <FastField label="Slug" name="slug" placeholder="game_development" fluid component={InputField} />
           <FastField label="Title" name="title" placeholder="Game development" fluid component={InputField} />
           <FastField label="Description" name="description" placeholder="Description..." component={TextAreaField} />
-          <FastField
+          <Field
             label="Stacks"
             id="stacks"
             name="stacks"
@@ -158,10 +142,12 @@ const WorkshopForm = ({ submit, prerequisites, lecturers }) => {
             search
             selection
             clearable
+            loading={fetchingStacks}
+            disabled={fetchingStacks}
             defaultValue={values.stacks ? undefined : []}
-            options={stacksOption}
+            options={stacks}
           />
-          <FastField
+          <Field
             label="Lecturers"
             id="lecturers"
             name="lecturers"
@@ -171,10 +157,12 @@ const WorkshopForm = ({ submit, prerequisites, lecturers }) => {
             search
             selection
             clearable
+            loading={fetchingLecturers}
+            disabled={fetchingLecturers}
             defaultValue={values.lecturers ? undefined : []}
             options={lecturers}
           />
-          <FastField
+          <Field
             label="Prerequisites"
             id="prerequisites"
             name="prerequisites"
@@ -184,6 +172,8 @@ const WorkshopForm = ({ submit, prerequisites, lecturers }) => {
             search
             selection
             clearable
+            loading={fetchingWorkshops}
+            disabled={fetchingWorkshops}
             defaultValue={values.prerequisites ? undefined : []}
             options={prerequisites}
           />

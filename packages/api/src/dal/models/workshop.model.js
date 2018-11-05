@@ -4,9 +4,9 @@ import slugify from 'slugify';
 const workshopSchema = new mongoose.Schema({
   slug: {
     type: String,
-    lowercase: true,
     required: true,
-    unique: [true, 'Should be unique'],
+    lowercase: true,
+    unique: true,
   },
 
   title: {
@@ -30,8 +30,8 @@ const workshopSchema = new mongoose.Schema({
   },
 
   stacks: [{
-    type: String,
-    default: [],
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Stack',
   }],
 
   skill: {

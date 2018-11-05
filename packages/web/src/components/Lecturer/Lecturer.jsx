@@ -25,9 +25,9 @@ const Organization = styled('span')`
   opacity: .4;
 `;
 
-const Lecturer = ({ name, image, organization }) => (
+const Lecturer = ({ name, avatar, organization }) => (
   <Container>
-    <Avatar src={image} />
+    <Avatar src={avatar} />
     <LecturerInfo>
       <Name>{name}</Name>
       <Organization>{organization}</Organization>
@@ -37,7 +37,7 @@ const Lecturer = ({ name, image, organization }) => (
 
 Lecturer.propTypes = {
   name: string.isRequired,
-  image: string.isRequired,
+  avatar: string.isRequired,
   organization: string.isRequired,
 };
 

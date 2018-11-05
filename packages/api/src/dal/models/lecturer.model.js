@@ -5,9 +5,14 @@ const lecturerSchema = new mongoose.Schema({
   slug: {
     type: String,
     required: true,
+    lowercase: true,
+    unique: true,
   },
 
-  image: String,
+  avatar: {
+    type: String,
+    default: '/images/lecturers/default.png',
+  },
 
   name: {
     type: String,
@@ -21,9 +26,10 @@ const lecturerSchema = new mongoose.Schema({
 });
 
 lecturerSchema.pre('validate', function (next) {
-  if (this.isNew) {
-    this.slug = slugify(this.name);
+  if (this.isNew && this.slug) {
+    this.slug = slugify(this.slug);
   }
+
   next();
 });
 

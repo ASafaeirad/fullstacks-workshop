@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Label, Dropdown } from 'semantic-ui-react';
+import { Form, Label } from 'semantic-ui-react';
 
 
 const DropdownField = ({
