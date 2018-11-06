@@ -3,6 +3,7 @@ import { func } from 'prop-types';
 import React from 'react';
 import { Button, Form, Header } from 'semantic-ui-react';
 import { object, string } from 'yup';
+import { Persist } from 'formik-persist';
 import { InputField } from '../InputField';
 
 const LecturerForm = ({ submit }) => {
@@ -65,6 +66,7 @@ const LecturerForm = ({ submit }) => {
           />
           <Button primary type="submit">Submit</Button>
           <Button type="reset" onClick={handleReset}>Reset</Button>
+          <Persist name="lf" debounce={400} />
         </Form>
       )}
     </Formik>

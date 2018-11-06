@@ -1,61 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
+import Axios from 'axios';
 import { Heading, Workshop } from '../../components';
 import styles from './Workshops.scss';
 
 const cx = classNames.bind(styles);
 
-const workshop = {
-  description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-  curriculum: [
-    {
-      title: 'Introduction',
-      lessons: [
-        'Lesson 1',
-        'Lesson 2',
-        'Lesson 3',
-        'Lesson 4',
-      ],
-    },
-    {
-      title: 'Game Design',
-      lessons: [
-        'Lesson 1',
-        'Lesson 4',
-      ],
-    },
-    {
-      title: 'Programming',
-      lessons: [
-        'Lesson 1',
-        'Lesson 2',
-        'Lesson 3',
-        'Lesson 4',
-        'Lesson 5',
-      ],
-    },
-  ],
-  stacks: [
-    { icon: 'maya' },
-    { icon: 'unreal' },
-    { icon: 'substance' },
-  ],
+const Workshops = () => {
+  const [workshops, setWorkshops] = useState([]);
 
-  lecturer: { image: '/images/lecturers/alireza.png', name: 'Alireza', organization: 'Frontendmonster' },
+  useEffect(async () => {
+    const workshopRes = await Axios.get('http://localhost:4000/api/rest/workshops');
 
-  title: 'Game Development Introduction',
-  thumbnail: 'game.png',
-  time: 10,
-  students: 20,
-  skill: 'Beginner',
+    console.log(workshopRes.data);
+
+
+    setWorkshops(workshopRes.data);
+  }, []);
+
+  return (
+    <div className={cx('container')}>
+      <Heading className={cx('heading')}>Game Development Workshops</Heading>
+      {workshops && workshops.map(workshop => <Workshop key={workshop._id} {...workshop} />)}
+    </div>
+  );
 };
-
-
-const Workshops = () => (
-  <div className={cx('container')}>
-    <Heading className={cx('heading')}>Game Development Workshops</Heading>
-    <Workshop {...workshop} />
-  </div>
-);
 
 export default Workshops;

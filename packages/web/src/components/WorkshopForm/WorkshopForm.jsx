@@ -1,8 +1,9 @@
+import React, { useState, useEffect } from 'react';
 import { FastField, Field, Formik } from 'formik';
 import { func } from 'prop-types';
-import React, { useState } from 'react';
-import { Button, Form, FormGroup, Grid, Header, Icon, Image, Segment } from 'semantic-ui-react';
+import { Button, Form, FormGroup, Grid, Header, Icon, Image, Segment, Message } from 'semantic-ui-react';
 import { array, mixed, number, object, string } from 'yup';
+import { Persist } from 'formik-persist';
 import { Curriculum, EditableCurriculum } from '../Curriculum';
 import { DropdownField } from '../DropdownField';
 import { InputField } from '../InputField';
@@ -23,7 +24,7 @@ const skillOptions = [
   },
 ];
 
-const WorkshopForm = ({ submit, prerequisites, lecturers, stacks, fetchingLecturers, fetchingWorkshops, fetchingStacks }) => {
+const WorkshopForm = ({ submit, onChange, prerequisites, lecturers, stacks, fetchingLecturers, fetchingWorkshops, fetchingStacks }) => {
   const [curriculum, setCurriculum] = useState([]);
   const [thumbnail, setThumbnail] = useState();
   const [thumbsrc, setThumbsrc] = useState();
@@ -54,7 +55,7 @@ const WorkshopForm = ({ submit, prerequisites, lecturers, stacks, fetchingLectur
         },
       });
     } catch (error) {
-      setErrors({ form: error });
+      setErrors({ form: error.message });
     }
   };
 
@@ -83,9 +84,13 @@ const WorkshopForm = ({ submit, prerequisites, lecturers, stacks, fetchingLectur
         })
       }
       onSubmit={onSubmit}
+      onChange={console.log}
+      validateOnBlur
+      validateOnChange={false}
     >
-      {({ handleSubmit, handleReset, values }) => (
-        <Form onSubmit={handleSubmit} error>
+      {({ handleSubmit, handleReset, values, errors }) => (
+
+        <Form onSubmit={handleSubmit} error={Boolean(errors.form)}>
           <Header as="h1">Submit Workshop</Header>
           <Segment.Group>
             {thumbnail
@@ -129,13 +134,14 @@ const WorkshopForm = ({ submit, prerequisites, lecturers, stacks, fetchingLectur
             </Segment>
           </Segment.Group>
 
-          <FastField label="Slug" name="slug" placeholder="game_development" fluid component={InputField} />
-          <FastField label="Title" name="title" placeholder="Game development" fluid component={InputField} />
-          <FastField label="Description" name="description" placeholder="Description..." component={TextAreaField} />
+          <FastField onBlur={onChange} label="Slug" name="slug" placeholder="game_development" fluid component={InputField} />
+          <FastField onBlur={onChange} label="Title" name="title" placeholder="Game development" fluid component={InputField} />
+          <FastField onBlur={onChange} label="Description" name="description" placeholder="Description..." component={TextAreaField} />
           <Field
             label="Stacks"
             id="stacks"
             name="stacks"
+            onBlur={onChange}
             component={DropdownField}
             fluid
             multiple
@@ -151,6 +157,7 @@ const WorkshopForm = ({ submit, prerequisites, lecturers, stacks, fetchingLectur
             label="Lecturers"
             id="lecturers"
             name="lecturers"
+            onBlur={onChange}
             component={DropdownField}
             fluid
             multiple
@@ -166,6 +173,7 @@ const WorkshopForm = ({ submit, prerequisites, lecturers, stacks, fetchingLectur
             label="Prerequisites"
             id="prerequisites"
             name="prerequisites"
+            onBlur={onChange}
             component={DropdownField}
             fluid
             multiple
@@ -181,12 +189,14 @@ const WorkshopForm = ({ submit, prerequisites, lecturers, stacks, fetchingLectur
             <FastField
               label="Time"
               name="time"
+              onBlur={onChange}
               component={InputField}
               fluid
             />
             <FastField
               label="Skill"
               name="skill"
+              onBlur={onChange}
               component={DropdownField}
               options={skillOptions}
               selection
@@ -196,10 +206,13 @@ const WorkshopForm = ({ submit, prerequisites, lecturers, stacks, fetchingLectur
             <Header>Curriculum</Header>
             <EditableCurriculum initalCurriculum={curriculum} onChange={setCurriculum} />
           </Segment>
+          {errors.form && <Message error>{errors.form}</Message>}
           <Button primary type="submit">Submit</Button>
           <Button type="reset" onClick={handleReset}>Reset</Button>
+          <Persist name="wsf" debounce={400} />
         </Form>
-      )}
+      )
+      }
     </Formik>
   );
 };

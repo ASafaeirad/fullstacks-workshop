@@ -34,7 +34,7 @@ const LessonsContainer = styled('div')`
 
 const Section = ({ lessons, title }) => (
   <>
-    <Heading tag="h4">{title}</Heading>}
+    <Heading tag="h4">{title}</Heading>
     <LessonsContainer>
       {lessons.map((lesson, i) => <Lesson key={lesson} title={lesson} />)}
     </LessonsContainer>
@@ -46,6 +46,6 @@ Section.propTypes = {
   lessons: arrayOf(string).isRequired,
 };
 
-const Curriculum = ({ curriculum }) => curriculum.map((section, i) => (<Section sectionIndex={i} key={section.title} />));
+const Curriculum = ({ curriculum }) => curriculum.map((section, i) => (<Section sectionIndex={i} key={section.title} lessons={section.lessons} title={section.title} />));
 
 export default Curriculum;

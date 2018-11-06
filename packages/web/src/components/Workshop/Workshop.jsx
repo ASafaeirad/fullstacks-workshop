@@ -19,7 +19,7 @@ class Workshop extends Component {
     title: string.isRequired,
     stacks: arrayOf(shape({})).isRequired,
     curriculum: arrayOf(shape({})).isRequired,
-    lecturer: string.isRequired,
+    lecturers: arrayOf(shape({})).isRequired,
     thumbnail: string.isRequired,
     skill: string.isRequired,
     time: number.isRequired,
@@ -31,12 +31,12 @@ class Workshop extends Component {
   }
 
   render() {
-    const { title, stacks, curriculum, lecturer, thumbnail, time, students, skill, description } = this.props;
+    const { title, stacks, curriculum, lecturers, thumbnail, time, students, skill, description } = this.props;
 
     return (
       <Container>
         <GeneralPanel
-          lecturer={lecturer}
+          lecturers={lecturers}
           title={title}
           thumbnail={thumbnail}
           time={time}

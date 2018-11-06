@@ -3,7 +3,9 @@ import { func } from 'prop-types';
 import React from 'react';
 import { Button, Form, Header } from 'semantic-ui-react';
 import { object, string } from 'yup';
+import { Persist } from 'formik-persist';
 import { InputField } from '../InputField';
+
 
 const StackForm = ({ submit }) => {
   const onSubmit = async (values, { setErrors }) => {
@@ -32,6 +34,7 @@ const StackForm = ({ submit }) => {
           <FastField label="Icon" name="icon" placeholder="https://example.com/icon.svg" fluid component={InputField} />
           <Button primary type="submit">Submit</Button>
           <Button type="reset" onClick={handleReset}>Reset</Button>
+          <Persist name="sf" debounce={400} />
         </Form>
       )}
     </Formik>

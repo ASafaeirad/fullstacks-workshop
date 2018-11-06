@@ -64,7 +64,12 @@ const EditableLesson = ({ sectionIndex, onRemoveLesson, onReorderLesson, default
           placeholder="Add Lesson..."
           value={title}
           style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
-          onKeyPress={e => e.charCode === 13 && submit()}
+          onKeyPress={(e) => {
+            if (e.charCode === 13) {
+              e.preventDefault();
+              submit();
+            }
+          }}
           onChange={(e) => {
             setEdited(true);
             setTitle(e.target.value);
@@ -111,7 +116,18 @@ const AddLesson = ({ sectionIndex, onAddLesson }) => {
         <i className="add icon" />
         Add Lesson
       </button>
-      <input type="text" placeholder="New Lesson..." value={title} onChange={e => setTitle(e.target.value)} onKeyPress={e => e.charCode === 13 && addLesson()} />
+      <input
+        type="text"
+        placeholder="New Lesson..."
+        value={title}
+        onChange={e => setTitle(e.target.value)}
+        onKeyPress={(e) => {
+          if (e.charCode === 13) {
+            e.preventDefault();
+            addLesson();
+          }
+        }}
+      />
     </LessonInputContainer>
   );
 };
@@ -120,7 +136,7 @@ const SectionInputContainer = styled('div')`
   margin-bottom: 2em;
 `;
 
-const EditableHeading = ({ defaultValue, onSubmit, onRemove, sectionIndex, isFirst, isLast, onReorderSection }) => {
+const EditableTitle = ({ defaultValue, onSubmit, onRemove, sectionIndex, isFirst, isLast, onReorderSection }) => {
   const [edited, setEdited] = useState(false);
   const [title, setTitle] = useState(defaultValue);
   const [hover, setHover] = useState(false);
@@ -166,7 +182,12 @@ const EditableHeading = ({ defaultValue, onSubmit, onRemove, sectionIndex, isFir
           placeholder="Add Lesson..."
           value={title}
           style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
-          onKeyPress={e => e.charCode === 13 && submit()}
+          onKeyPress={(e) => {
+            if (e.charCode === 13) {
+              e.preventDefault();
+              submit();
+            }
+          }}
           onChange={(e) => {
             setEdited(true);
             setTitle(e.target.value);
@@ -176,17 +197,19 @@ const EditableHeading = ({ defaultValue, onSubmit, onRemove, sectionIndex, isFir
           <i className="remove icon" />
         </DeleteButton>
       </div>
-
+      {edited
+      && (
       <button type="button" className="ui icon button teal" onClick={submit}>
         <i className="check icon" />
       </button>
+      )}
     </SectionInputContainer>
   );
 };
 
 const Section = ({ onChange, onReorderSection, onReorderLesson, lessons, title, onAddLesson, onSectionRemove, onRemoveLesson, onSubmitLessonChange, sectionIndex, onTitleChange }) => (
   <>
-    <EditableHeading
+    <EditableTitle
       onReorderSection={onReorderSection}
       onRemove={onSectionRemove}
       sectionIndex={sectionIndex}
@@ -250,7 +273,18 @@ const AddSectionInput = ({ onSubmit }) => {
         <i className="add icon" />
         Add Section
       </button>
-      <input type="text" placeholder="New Lesson..." value={title} onChange={e => setTitle(e.target.value)} onKeyPress={e => e.charCode === 13 && submit()} />
+      <input
+        type="text"
+        placeholder="New Lesson..."
+        value={title}
+        onChange={e => setTitle(e.target.value)}
+        onKeyPress={(e) => {
+          if (e.charCode === 13) {
+            e.preventDefault();
+            submit();
+          }
+        }}
+      />
     </SectionInputContainer>
   );
 };

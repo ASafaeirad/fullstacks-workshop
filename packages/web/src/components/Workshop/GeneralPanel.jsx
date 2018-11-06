@@ -1,5 +1,5 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { string, number, oneOfType } from 'prop-types';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Heading } from '../Heading';
@@ -60,18 +60,18 @@ const Metadata = ({ value, icon }) => (
 );
 
 Metadata.propTypes = {
-  value: string.isRequired,
   icon: string.isRequired,
+  value: oneOfType([string, number]).isRequired,
 };
 
-const GeneralPanel = ({ thumbnail, title, lecturer, time, students, skill }) => (
+const GeneralPanel = ({ thumbnail, title, lecturers, time, students, skill }) => (
   <Container>
     <ThumbContainer>
       <Thumb src={`/images/workshops/${thumbnail}`} />
     </ThumbContainer>
     <GeneralContent>
       <Heading tag="h3" size="2em">{title}</Heading>
-      <Lecturer {...lecturer} />
+      <Lecturer {...lecturers[0]} />
       <WorkshopMetadata>
         <Metadata icon="clock" value={`${time}H`} />
         <Metadata icon="users" value={students} />
