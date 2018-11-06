@@ -3,6 +3,7 @@ $tab-height: 50px;
 :global .react-tabs {
   -webkit-tap-highlight-color: transparent;
   height: 100%;
+  font-family: $font-family-fa;
 
   &__tab-list {
     margin: 0;

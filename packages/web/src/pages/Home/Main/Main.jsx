@@ -65,7 +65,7 @@ const Main = ({ next }) => (
       }}
     />
     <img className={cx('logo')} src="images/logo.png" alt="logo" />
-    <Heading tag="h1" className={cx('heading')}>Fullstacks <br />Learning Path</Heading>
+    <Heading tag="h1" className={cx('heading')} style={{ textAlign: 'center' }}>مسیر آموزشی <br /> فول استکس</Heading>
     <P className={cx('subhead')}>Workshops for web and game developers</P>
     <Button onClick={next} className={cx('button')}>Explore</Button>
   </Section>

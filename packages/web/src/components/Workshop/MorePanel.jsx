@@ -21,6 +21,7 @@ const Scroller = styled('div')`
 
 const ActionBar = styled('div')`
   position: absolute;
+  font-family: Vazir;
   bottom: 0;
   right: 0;
   width: 100%;
@@ -46,8 +47,8 @@ const MorePanel = ({ stacks, curriculum, description }) => (
   <Container>
     <Tabs>
       <TabList>
-        <Tab>About</Tab>
-        <Tab>Curriculum</Tab>
+        <Tab>درباره دوره</Tab>
+        <Tab>سرفصل ها</Tab>
       </TabList>
       <TabPanel>
         <TabPanelContainer>
@@ -68,7 +69,7 @@ const MorePanel = ({ stacks, curriculum, description }) => (
       </TabPanel>
     </Tabs>
     <ActionBar>
-      <SolidButton>Signup</SolidButton>
+      <SolidButton>ثبت نام</SolidButton>
     </ActionBar>
   </Container>
 );

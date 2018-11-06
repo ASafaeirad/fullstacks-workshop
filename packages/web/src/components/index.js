@@ -20,3 +20,4 @@ export { TextArea } from './TextArea';
 export { TextAreaField } from './TextAreaField';
 export { Workshop } from './Workshop';
 export { WorkshopForm } from './WorkshopForm';
+export { Muted } from './Muted';

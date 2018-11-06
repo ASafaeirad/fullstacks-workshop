@@ -20,7 +20,7 @@ const Workshops = () => {
 
   return (
     <div className={cx('container')}>
-      <Heading className={cx('heading')}>Game Development Workshops</Heading>
+      <Heading className={cx('heading')}>دوره های بازی سازی</Heading>
       {workshops && workshops.map(workshop => <Workshop key={workshop._id} {...workshop} />)}
     </div>
   );

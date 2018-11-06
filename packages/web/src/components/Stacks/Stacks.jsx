@@ -16,7 +16,7 @@ const Stacks = ({ stacks, hover, className }) => (
   <div className={cx('root', className)}>
     {stacks.length > 0
       ? stacks.map(stack => <Stack key={stack.icon} hover={hover} icon={stack.icon} />)
-      : 'Nothing'
+      : 'ندارد'
      }
   </div>
 );

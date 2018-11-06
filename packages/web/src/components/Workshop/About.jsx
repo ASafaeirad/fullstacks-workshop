@@ -4,15 +4,15 @@ import { arrayOf, shape, string } from 'prop-types';
 import { Heading } from '../Heading';
 import { P } from '../P';
 import { Stacks } from '../Stacks';
+import { Muted } from '../Muted';
 
-const Prerequisite = ({ children }) => (
-  <div>
-    {children}
-  </div>
+const Prerequisite = props => (
+  <div {...props} />
 );
 
 const PrerequisitesContainer = styled('div')`
-  font-family: Rajdhani;
+  font-family: ${props => (props.latin ? 'Rajdhani' : 'Vazir')};
+  text-align: ${props => (props.latin ? 'unset' : 'start')};
   margin-bottom: 1em;
 `;
 
@@ -20,7 +20,7 @@ const Prerequisites = ({ prerequisites }) => (
   <PrerequisitesContainer>
     {prerequisites.length > 0
       ? prerequisites.map(_ => <Prerequisite>_</Prerequisite>)
-      : 'Nothing'
+      : <Muted>ندارد</Muted>
      }
   </PrerequisitesContainer>
 );
@@ -35,11 +35,11 @@ Prerequisites.defaultProps = {
 
 const About = ({ stacks, prerequisites, description }) => (
   <Fragment>
-    <Heading tag="h4">Description:</Heading>
+    <Heading tag="h4">توضیحات:</Heading>
     <P>{description}</P>
-    <Heading tag="h4">Prerequisites:</Heading>
+    <Heading tag="h4">پیشنیازها:</Heading>
     <Prerequisites prerequisites={prerequisites} />
-    <Heading tag="h4">Skill Covered in this Course:</Heading>
+    <Heading tag="h4">مهارت هایی آموزشی دوره:</Heading>
     <Stacks stacks={stacks} />
   </Fragment>
 );

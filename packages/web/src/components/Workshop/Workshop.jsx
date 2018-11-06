@@ -6,6 +6,7 @@ import MorePanel from './MorePanel';
 
 const Container = styled('div')`
   display: flex;
+  direction: rtl;
   flex-flow: row wrap;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   width: 800px;

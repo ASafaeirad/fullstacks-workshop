@@ -12,12 +12,12 @@ const LessonContainer = styled('div')`
 `;
 
 const LessonHeading = styled('span')`
-  margin-left: 4px;
+  margin-right: 4px;
 `;
 
 const Lesson = ({ title }) => (
   <LessonContainer>
-    <FontAwesomeIcon icon="angle-right" size="xs" />
+    <FontAwesomeIcon icon="angle-left" size="xs" />
     <LessonHeading>
       {title}
     </LessonHeading>

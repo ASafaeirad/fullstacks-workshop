@@ -1,4 +1,4 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faAngleRight, faUsers, faGraduationCap, faClock } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faUsers, faGraduationCap, faClock } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faAngleRight, faUsers, faGraduationCap, faClock);
+library.add(faAngleLeft, faUsers, faGraduationCap, faClock);

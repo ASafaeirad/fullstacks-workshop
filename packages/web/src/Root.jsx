@@ -6,6 +6,7 @@ import { App } from './pages';
 const theme = {
   colors: {
     primary: '#67f',
+    muted: 'rgba(0,0,0, .3)',
     feedbacks: {
       success: '#67f',
       error: '#c22',

@@ -6,10 +6,11 @@ import { Avatar } from '../Avatar';
 const Container = styled('div')`
   display: flex;
   flex-flow: row nowrap;
+  font-family: Vazir;
 `;
 
 const LecturerInfo = styled('div')`
-  margin-left: 10px;
+  margin-right: 10px;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -19,10 +20,12 @@ const Name = styled('span')`
   display: block;
   font-size: 1.2em;
   line-height: .9em;
+  text-align: start;
 `;
 const Organization = styled('span')`
   font-size: .8em;
   opacity: .4;
+  text-align: start;
 `;
 
 const Lecturer = ({ name, avatar, organization }) => (

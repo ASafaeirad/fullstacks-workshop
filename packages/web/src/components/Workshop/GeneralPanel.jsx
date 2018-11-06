@@ -17,6 +17,7 @@ const Container = styled('div')`
 const Thumb = styled('img')`
   width: 100%;
   height: 200px;
+  background: #ccc;
   object-fit: cover;
 `;
 
@@ -28,6 +29,7 @@ const ThumbContainer = styled('div')`
 const GeneralContent = styled('div')`
   display: flex;
   flex: 1;
+  direction: rtl;
   flex-flow: column nowrap;
   padding: 1.5em 1.5em 1em;
   min-height: 240px;

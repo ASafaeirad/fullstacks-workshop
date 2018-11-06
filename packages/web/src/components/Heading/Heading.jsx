@@ -5,9 +5,9 @@ import styles from './Heading.scss';
 
 const cx = classNames.bind(styles);
 
-const Heading = ({ className, tag, size, ...rest }) => {
+const Heading = ({ className, tag, size, latin, ...rest }) => {
   const Tag = tag;
-  return <Tag className={cx('root', tag, className)} style={{ fontSize: size }} {...rest} />;
+  return <Tag className={cx('root', tag, className, { latin })} style={{ fontSize: size }} {...rest} />;
 };
 
 Heading.defaultProps = {

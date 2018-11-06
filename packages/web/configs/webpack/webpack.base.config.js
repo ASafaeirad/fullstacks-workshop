@@ -26,8 +26,6 @@ const config = {
       ...generateWebpackRules(
         {
           babel: true,
-          graphql: true,
-          mjs: true,
         },
       ),
       {
