@@ -5,15 +5,21 @@
   color: $white;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: relative;
-  padding-bottom: 3em;
+  padding: 4em 2em;
+}
+
+.logo-container {
+  height: 180px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
 }
 
 .logo {
-  height: 140px;
-  margin-bottom: 3em;
+  height: 150px;
   will-change: transform;
   animation: swing 5s infinite ease-in-out;
 }
@@ -25,7 +31,10 @@
 }
 
 .subhead {
-  margin-bottom: 2em;
+  text-align: center !important;
+  width: 550px;
+  line-height: 1.5em;
+  margin: .5em 0 4em;
   opacity: .6;
   color: $text-light;
 }

@@ -8,7 +8,7 @@ const App = () => (
   <Switch>
     <Route exact path="/" component={Home} />
     <Route exact path="/workshops" component={Workshops} />
-    <Route exact path="/manage" component={Manage} />
+    <Route path="/manage/:tab?" component={Manage} />
   </Switch>
 );
 

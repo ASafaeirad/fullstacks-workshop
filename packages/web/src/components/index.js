@@ -7,6 +7,7 @@ export { Indicator } from './Indicator';
 export { Input } from './Input';
 export { InputField } from './InputField';
 export { InputTextArea } from './InputTextArea';
+export { Lecturer } from './Lecturer';
 export { LecturerForm } from './LecturerForm';
 export { P } from './P';
 export { Screen } from './Screen';

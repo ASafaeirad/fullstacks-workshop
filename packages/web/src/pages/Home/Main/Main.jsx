@@ -64,9 +64,13 @@ const Main = ({ next }) => (
         retina_detect: true,
       }}
     />
-    <img className={cx('logo')} src="images/logo.png" alt="logo" />
-    <Heading tag="h1" className={cx('heading')} style={{ textAlign: 'center' }}>مسیر آموزشی <br /> فول استکس</Heading>
-    <P className={cx('subhead')}>Workshops for web and game developers</P>
+    <div className={cx('logo-container')}>
+      <img className={cx('logo')} src="images/logo.png" alt="logo" />
+    </div>
+    <div>
+      <Heading tag="h1" className={cx('heading')} style={{ textAlign: 'center' }}>به دنیای برنامه نویسی پرتاب شو</Heading>
+      <P className={cx('subhead')}>باور ما اینست که کاربران ایرانی لایق بهترین ها هستند و باید بهترین و بروزترین فیلم های آموزشی و مقالات در اختیار آنها قرار بگیرد تا بتوانند به سرعت پیشرفت کنند و جزء بهترین ها در صنعت طراحی و برنامه نویسی وب شوند . با ما همراه باشید تا بهترین ها رو لایق بهترین کاربران کنیم</P>
+    </div>
     <Button onClick={next} className={cx('button')}>Explore</Button>
   </Section>
 );

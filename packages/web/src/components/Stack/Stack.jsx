@@ -2,7 +2,7 @@ import React from 'react';
 import { string, bool } from 'prop-types';
 import styled, { css } from 'styled-components';
 
-const resolveSprite = icon => `svg/stacks-sprite.svg#${icon}`;
+const resolveSprite = icon => `/svg/stacks-sprite.svg#${icon}`;
 
 const Svg = styled('svg')`
   fill: currentColor;

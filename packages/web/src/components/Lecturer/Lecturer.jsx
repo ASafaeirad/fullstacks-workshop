@@ -7,6 +7,7 @@ const Container = styled('div')`
   display: flex;
   flex-flow: row nowrap;
   font-family: Vazir;
+  direction: rtl;
 `;
 
 const LecturerInfo = styled('div')`
@@ -18,8 +19,7 @@ const LecturerInfo = styled('div')`
 
 const Name = styled('span')`
   display: block;
-  font-size: 1.2em;
-  line-height: .9em;
+  font-size: 1em;
   text-align: start;
 `;
 const Organization = styled('span')`
@@ -28,8 +28,8 @@ const Organization = styled('span')`
   text-align: start;
 `;
 
-const Lecturer = ({ name, avatar, organization }) => (
-  <Container>
+const Lecturer = ({ name, avatar, organization, onClick }) => (
+  <Container onClick={onClick}>
     <Avatar src={avatar} />
     <LecturerInfo>
       <Name>{name}</Name>

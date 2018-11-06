@@ -3,13 +3,22 @@ import { func } from 'prop-types';
 import React from 'react';
 import { Button, Form, Header } from 'semantic-ui-react';
 import { object, string } from 'yup';
-import { Persist } from 'formik-persist';
 import { InputField } from '../InputField';
 
-const LecturerForm = ({ submit }) => {
-  const onSubmit = async (values, { setErrors }) => {
-    console.log('Submit');
+const LecturerForm = ({ submit, lecturer }) => {
+  const initialValues = lecturer ? {
+    slug: lecturer.slug,
+    avatar: lecturer.avatar,
+    name: lecturer.name,
+    organization: lecturer.organization,
+  } : {
+    slug: '',
+    avatar: '',
+    name: '',
+    organization: '',
+  };
 
+  const onSubmit = async (values, { setErrors }) => {
     try {
       await submit(values);
     } catch (error) {
@@ -19,19 +28,14 @@ const LecturerForm = ({ submit }) => {
 
   return (
     <Formik
-      initialValues={{
-        slug: '',
-        avatar: '',
-        name: '',
-        organization: '',
-      }}
+      onSubmit={onSubmit}
+      initialValues={initialValues}
       validationSchema={
         object().shape({
           name: string().required('Required'),
           organization: string().required('Required'),
         })
       }
-      onSubmit={onSubmit}
     >
       {({ handleSubmit, handleReset }) => (
         <Form onSubmit={handleSubmit} error>
@@ -66,7 +70,6 @@ const LecturerForm = ({ submit }) => {
           />
           <Button primary type="submit">Submit</Button>
           <Button type="reset" onClick={handleReset}>Reset</Button>
-          <Persist name="lf" debounce={400} />
         </Form>
       )}
     </Formik>

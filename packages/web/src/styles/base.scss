@@ -19,3 +19,7 @@ html, body {
   display: flex;
   font-family: $font-family-base;
 }
+
+:global .relative {
+  position: relative;
+}
