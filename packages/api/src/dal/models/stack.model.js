@@ -29,6 +29,11 @@ stackSchema.pre('validate', function (next) {
   next();
 });
 
+stackSchema.methods.toJSON = function () {
+  const { __v, ...doc } = this.toObject();
+  return doc;
+};
+
 const Stack = mongoose.model('Stack', stackSchema);
 
 export default Stack;

@@ -8,7 +8,7 @@ stacksRouter.route('/')
   .get(ctrl.getAll(model))
   .post(ctrl.createOne(model));
 
-stacksRouter.route('/:slug')
+stacksRouter.route('/:id')
   .get(ctrl.getOne(model))
   .put(ctrl.updateOne(model))
   .delete(ctrl.deleteOne(model));

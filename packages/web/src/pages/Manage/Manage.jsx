@@ -2,14 +2,14 @@ import React from 'react';
 import 'semantic-ui-css/semantic.min.css';
 import { Tab } from 'semantic-ui-react';
 import styled from 'styled-components';
-import WorkshopFormContainer from './WorkshopFormContainer';
-import StackFormContainer from './StackFormContainer';
+import ManageWorkshops from './ManageWorkshops';
+import ManageStacks from './ManageStacks';
 import ManageLecturers from './ManageLecturers';
 
 const panes = [
-  { tab: 'workshops', menuItem: 'Workshops', render: () => <Tab.Pane><WorkshopFormContainer /></Tab.Pane> },
+  { tab: 'workshops', menuItem: 'Workshops', render: () => <Tab.Pane><ManageWorkshops /></Tab.Pane> },
   { tab: 'lecturers', menuItem: 'Lecturers', render: () => <Tab.Pane><ManageLecturers /></Tab.Pane> },
-  { tab: 'stacks', menuItem: 'Stacks', render: () => <Tab.Pane><StackFormContainer /></Tab.Pane> },
+  { tab: 'stacks', menuItem: 'Stacks', render: () => <Tab.Pane><ManageStacks /></Tab.Pane> },
 ];
 
 const ContainerDiv = styled('div')`

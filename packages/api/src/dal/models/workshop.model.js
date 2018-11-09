@@ -62,7 +62,8 @@ const workshopSchema = new mongoose.Schema({
   }],
 
   thumbnail: {
-    type: String,
+    data: Buffer,
+    mimetype: String,
   },
 });
 
@@ -72,6 +73,11 @@ workshopSchema.pre('validate', function (next) {
   }
   next();
 });
+
+workshopSchema.methods.toJSON = function () {
+  const { __v, ...doc } = this.toObject();
+  return doc;
+};
 
 const Workshop = mongoose.model('Workshop', workshopSchema);
 

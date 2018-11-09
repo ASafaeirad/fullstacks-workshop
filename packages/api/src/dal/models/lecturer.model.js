@@ -11,7 +11,13 @@ const lecturerSchema = new mongoose.Schema({
 
   avatar: {
     type: String,
-    default: '/images/lecturers/default.png',
+    set: (v) => {
+      if (v === '' || v == null) {
+        return '/images/lecturers/default.png';
+      }
+
+      return v;
+    },
   },
 
   name: {
@@ -30,8 +36,18 @@ lecturerSchema.pre('validate', function (next) {
     this.slug = slugify(this.slug);
   }
 
+  if (this.avatar === '') {
+    Reflect.deleteProperty(this, 'avatar');
+    console.log(this);
+  }
+
   next();
 });
+
+lecturerSchema.methods.toJSON = function () {
+  const { __v, ...doc } = this.toObject();
+  return doc;
+};
 
 const Lecturer = mongoose.model('Lecturer', lecturerSchema);
 

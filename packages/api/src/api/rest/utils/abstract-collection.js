@@ -5,8 +5,8 @@ export default {
     return model.create(body);
   },
 
-  deleteOne(docToDelete) {
-    return docToDelete.remove();
+  deleteOne(model, id) {
+    return model.findByIdAndDelete(id);
   },
 
   getOne(model, id) {
@@ -21,7 +21,8 @@ export default {
       .limit(+limit);
   },
 
-  updateOne(docToUpdate, update) {
+  async updateOne(model, id, update) {
+    const docToUpdate = await model.findById(id);
     merge(docToUpdate, update);
     return docToUpdate.save();
   },

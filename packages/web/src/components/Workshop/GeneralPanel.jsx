@@ -66,10 +66,10 @@ Metadata.propTypes = {
   value: oneOfType([string, number]).isRequired,
 };
 
-const GeneralPanel = ({ thumbnail, title, lecturers, time, students, skill }) => (
+const GeneralPanel = ({ thumbnail, title, lecturers, time, students, skill }) => console.log(thumbnail) || (
   <Container>
     <ThumbContainer>
-      <Thumb src={`/images/workshops/${thumbnail}`} />
+      <Thumb src={`data:image/jpg;base64,${thumbnail.data}`} />
     </ThumbContainer>
     <GeneralContent>
       <Heading tag="h3" size="2em">{title}</Heading>

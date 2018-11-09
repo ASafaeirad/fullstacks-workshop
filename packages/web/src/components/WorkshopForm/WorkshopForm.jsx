@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { FastField, Field, Formik } from 'formik';
+import { Field, FastField, Formik } from 'formik';
 import { func } from 'prop-types';
 import { Button, Form, FormGroup, Grid, Header, Icon, Image, Segment, Message } from 'semantic-ui-react';
 import { array, mixed, number, object, string } from 'yup';
-import { Persist } from 'formik-persist';
 import { Curriculum, EditableCurriculum } from '../Curriculum';
 import { DropdownField } from '../DropdownField';
 import { InputField } from '../InputField';
 import { TextAreaField } from '../TextAreaField';
+import { Stack } from '../Stack';
 
 const skillOptions = [
   {
@@ -24,10 +24,62 @@ const skillOptions = [
   },
 ];
 
-const WorkshopForm = ({ submit, onChange, prerequisites, lecturers, stacks, fetchingLecturers, fetchingWorkshops, fetchingStacks }) => {
+const WorkshopForm = ({ submit, workshop, onChange, prerequisites, lecturers, stacks, fetchingLecturers, fetchingWorkshops, fetchingStacks }) => {
   const [curriculum, setCurriculum] = useState([]);
   const [thumbnail, setThumbnail] = useState();
   const [thumbsrc, setThumbsrc] = useState();
+
+  const initialValues = workshop ? {
+    slug: workshop.slug,
+    title: workshop.title,
+    description: workshop.description,
+    lecturers: workshop.lecturers.map(l => l._id),
+    stacks: workshop.stacks.map(s => s._id),
+    prerequisites: workshop.prerequisites.map(p => p._id),
+    skill: workshop.skill,
+    time: workshop.time,
+  } : {
+    slug: '',
+    title: '',
+    description: '',
+    lecturers: [],
+    stacks: [],
+    prerequisites: [],
+    skill: null,
+    time: 12,
+  };
+
+  useEffect(() => {
+    if (workshop) {
+      setCurriculum(workshop.curriculum);
+
+      if (workshop.thumbnail) {
+        setThumbsrc(`data:image/jpg;base64,${workshop.thumbnail.data}`);
+      }
+    }
+  }, [workshop]);
+
+  const initalCurriculum = (workshop && workshop.curriculum) ? workshop.curriculum : [];
+
+  const prerequisitesOptions = prerequisites.map(pre => ({
+    text: pre.title,
+    key: pre._id,
+    value: pre._id,
+  }));
+
+  const stackOptions = stacks.map(stack => ({
+    key: stack._id,
+    value: stack._id,
+    text: stack.name,
+    content: <Stack icon={stack.icon} />,
+  }));
+
+  const lecturerOptions = lecturers.map(lecturer => ({
+    key: lecturer._id,
+    text: lecturer.name,
+    value: lecturer._id,
+    image: { avatar: true, src: lecturer.avatar },
+  }));
 
   const onSelectThumbnail = async (event) => {
     const [file] = event.currentTarget.files;
@@ -48,6 +100,7 @@ const WorkshopForm = ({ submit, onChange, prerequisites, lecturers, stacks, fetc
   const onSubmit = async (values, { setErrors }) => {
     try {
       await submit({
+        ...workshop,
         ...values,
         ...{
           curriculum,
@@ -61,16 +114,7 @@ const WorkshopForm = ({ submit, onChange, prerequisites, lecturers, stacks, fetc
 
   return (
     <Formik
-      initialValues={{
-        slug: '',
-        title: '',
-        description: '',
-        lecturers: [],
-        stacks: [],
-        prerequisites: [],
-        skill: null,
-        time: 12,
-      }}
+      initialValues={initialValues}
       validationSchema={
         object().shape({
           slug: string().required('Required'),
@@ -84,7 +128,6 @@ const WorkshopForm = ({ submit, onChange, prerequisites, lecturers, stacks, fetc
         })
       }
       onSubmit={onSubmit}
-      onChange={console.log}
       validateOnBlur
       validateOnChange={false}
     >
@@ -134,14 +177,13 @@ const WorkshopForm = ({ submit, onChange, prerequisites, lecturers, stacks, fetc
             </Segment>
           </Segment.Group>
 
-          <FastField onBlur={onChange} label="Slug" name="slug" placeholder="game_development" fluid component={InputField} />
-          <FastField onBlur={onChange} label="Title" name="title" placeholder="Game development" fluid component={InputField} />
-          <FastField onBlur={onChange} label="Description" name="description" placeholder="Description..." component={TextAreaField} />
+          <Field label="Slug" name="slug" placeholder="game_development" fluid component={InputField} />
+          <Field label="Title" name="title" placeholder="Game development" fluid component={InputField} />
+          <Field label="Description" name="description" placeholder="Description..." component={TextAreaField} />
           <Field
             label="Stacks"
             id="stacks"
             name="stacks"
-            onBlur={onChange}
             component={DropdownField}
             fluid
             multiple
@@ -151,13 +193,12 @@ const WorkshopForm = ({ submit, onChange, prerequisites, lecturers, stacks, fetc
             loading={fetchingStacks}
             disabled={fetchingStacks}
             defaultValue={values.stacks ? undefined : []}
-            options={stacks}
+            options={stackOptions}
           />
           <Field
             label="Lecturers"
             id="lecturers"
             name="lecturers"
-            onBlur={onChange}
             component={DropdownField}
             fluid
             multiple
@@ -167,13 +208,12 @@ const WorkshopForm = ({ submit, onChange, prerequisites, lecturers, stacks, fetc
             loading={fetchingLecturers}
             disabled={fetchingLecturers}
             defaultValue={values.lecturers ? undefined : []}
-            options={lecturers}
+            options={lecturerOptions}
           />
           <Field
             label="Prerequisites"
             id="prerequisites"
             name="prerequisites"
-            onBlur={onChange}
             component={DropdownField}
             fluid
             multiple
@@ -183,20 +223,18 @@ const WorkshopForm = ({ submit, onChange, prerequisites, lecturers, stacks, fetc
             loading={fetchingWorkshops}
             disabled={fetchingWorkshops}
             defaultValue={values.prerequisites ? undefined : []}
-            options={prerequisites}
+            options={prerequisitesOptions}
           />
           <FormGroup widths="equal">
-            <FastField
+            <Field
               label="Time"
               name="time"
-              onBlur={onChange}
               component={InputField}
               fluid
             />
-            <FastField
+            <Field
               label="Skill"
               name="skill"
-              onBlur={onChange}
               component={DropdownField}
               options={skillOptions}
               selection
@@ -204,12 +242,11 @@ const WorkshopForm = ({ submit, onChange, prerequisites, lecturers, stacks, fetc
           </FormGroup>
           <Segment>
             <Header>Curriculum</Header>
-            <EditableCurriculum initalCurriculum={curriculum} onChange={setCurriculum} />
+            <EditableCurriculum initalCurriculum={initalCurriculum} onChange={setCurriculum} />
           </Segment>
           {errors.form && <Message error>{errors.form}</Message>}
           <Button primary type="submit">Submit</Button>
           <Button type="reset" onClick={handleReset}>Reset</Button>
-          <Persist name="wsf" debounce={400} />
         </Form>
       )
       }

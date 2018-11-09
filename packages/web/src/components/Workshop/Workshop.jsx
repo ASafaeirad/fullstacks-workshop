@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { string, arrayOf, shape, number } from 'prop-types';
+import { string, arrayOf, shape, number, oneOfType } from 'prop-types';
 import GeneralPanel from './GeneralPanel';
 import MorePanel from './MorePanel';
 
@@ -21,11 +21,15 @@ class Workshop extends Component {
     stacks: arrayOf(shape({})).isRequired,
     curriculum: arrayOf(shape({})).isRequired,
     lecturers: arrayOf(shape({})).isRequired,
-    thumbnail: string.isRequired,
+    thumbnail: shape({}),
     skill: string.isRequired,
     time: number.isRequired,
     students: number.isRequired,
     description: string.isRequired,
+  }
+
+  static defaultProps = {
+    thumbnail: {},
   }
 
   state = {

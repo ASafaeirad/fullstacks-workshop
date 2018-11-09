@@ -3,14 +3,17 @@ import { func } from 'prop-types';
 import React from 'react';
 import { Button, Form, Header } from 'semantic-ui-react';
 import { object, string } from 'yup';
-import { Persist } from 'formik-persist';
 import { InputField } from '../InputField';
 
 
-const StackForm = ({ submit }) => {
+const StackForm = ({ submit, stack, onCancel }) => {
+  const initialValues = stack
+    ? { name: stack.name, icon: stack.icon }
+    : { name: '', icon: '' };
+
   const onSubmit = async (values, { setErrors }) => {
     try {
-      await submit(values);
+      await submit({ ...stack, ...values });
     } catch (error) {
       setErrors({ form: error });
     }
@@ -18,7 +21,7 @@ const StackForm = ({ submit }) => {
 
   return (
     <Formik
-      initialValues={{ name: '', icon: '' }}
+      initialValues={initialValues}
       validationSchema={
         object().shape({
           name: string().required('Required'),
@@ -32,9 +35,9 @@ const StackForm = ({ submit }) => {
           <Header as="h1">Submit Stacks</Header>
           <FastField label="Name" name="name" placeholder="unity" fluid component={InputField} />
           <FastField label="Icon" name="icon" placeholder="https://example.com/icon.svg" fluid component={InputField} />
-          <Button primary type="submit">Submit</Button>
+          <Button type="button" onClick={onCancel}>Cancel</Button>
           <Button type="reset" onClick={handleReset}>Reset</Button>
-          <Persist name="sf" debounce={400} />
+          <Button primary type="submit">Submit</Button>
         </Form>
       )}
     </Formik>

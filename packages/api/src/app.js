@@ -3,6 +3,7 @@ import express from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import fileupload from 'express-fileupload';
 import { morgan } from './logger';
 import apiRouter from './api';
 
@@ -19,6 +20,7 @@ export const createApp = ({ models, verbose } = {}) => {
   app.use(compression());
   app.use(cors());
   app.use(bodyParser.json());
+  app.use(fileupload());
 
   app.use((req, _, next) => {
     req.fullstacks = req.fullstacks || {};

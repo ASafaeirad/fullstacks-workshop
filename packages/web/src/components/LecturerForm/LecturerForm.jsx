@@ -5,7 +5,7 @@ import { Button, Form, Header } from 'semantic-ui-react';
 import { object, string } from 'yup';
 import { InputField } from '../InputField';
 
-const LecturerForm = ({ submit, lecturer }) => {
+const LecturerForm = ({ submit, lecturer, onCancel }) => {
   const initialValues = lecturer ? {
     slug: lecturer.slug,
     avatar: lecturer.avatar,
@@ -20,7 +20,7 @@ const LecturerForm = ({ submit, lecturer }) => {
 
   const onSubmit = async (values, { setErrors }) => {
     try {
-      await submit(values);
+      await submit({ ...lecturer, ...values });
     } catch (error) {
       setErrors({ form: error });
     }
@@ -68,8 +68,9 @@ const LecturerForm = ({ submit, lecturer }) => {
             fluid
             component={InputField}
           />
-          <Button primary type="submit">Submit</Button>
+          <Button type="button" onClick={onCancel}>Cancel</Button>
           <Button type="reset" onClick={handleReset}>Reset</Button>
+          <Button primary type="submit">Submit</Button>
         </Form>
       )}
     </Formik>
