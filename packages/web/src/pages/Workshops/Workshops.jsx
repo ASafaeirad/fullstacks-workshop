@@ -11,10 +11,6 @@ const Workshops = () => {
 
   useEffect(async () => {
     const workshopRes = await Axios.get('http://localhost:4000/api/rest/workshops');
-
-    console.log(workshopRes.data);
-
-
     setWorkshops(workshopRes.data);
   }, []);
 

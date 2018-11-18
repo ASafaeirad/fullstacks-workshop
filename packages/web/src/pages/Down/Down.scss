@@ -1,0 +1,37 @@
+.root {
+  background-color: #ffde00;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 90vw;
+  max-width: 800px;
+  height: 80vh;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+
+}
+
+.watermark {
+  font-family: Homenaje;
+  letter-spacing: 20px;
+  user-select: none;
+  position: absolute;
+  font-weight: 600;
+  font-size: 100px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: .1;
+  text-transform: uppercase;
+}
+
+.heading {
+
+ }
