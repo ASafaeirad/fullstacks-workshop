@@ -62,7 +62,7 @@
     "nps-utils": "^1.7.0",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
-    "react-hot-loader": "^4.3.11",
+    "react-hot-loader": "^4.5.1",
     "rimraf": "^2.6.2",
     "sass-loader": "^7.1.0",
     "simple-progress-webpack-plugin": "^1.1.2",

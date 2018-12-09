@@ -1,6 +1,7 @@
 export { Button } from './Button';
 export { Curriculum, EditableCurriculum } from './Curriculum';
 export { DropdownField } from './DropdownField';
+export { SectionHeading } from './SectionHeading';
 export { Form } from './Form';
 export { Heading } from './Heading';
 export { Indicator } from './Indicator';

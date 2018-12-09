@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import { hot } from 'react-hot-loader';
 import { App } from './pages';
 
 const theme = {
@@ -24,8 +25,4 @@ const Root = () => (
   </BrowserRouter>
 );
 
-// TODO: Incompatibility with React Hooks
-// https://github.com/gaearon/react-hot-loader/issues/1088
-// import { hot } from 'react-hot-loader';
-// export default hot(module)(Root);
-export default Root;
+export default hot(module)(Root);

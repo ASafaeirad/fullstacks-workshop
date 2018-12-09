@@ -1,37 +1,61 @@
 .root {
-  background-color: #ffde00;
+  background-image: linear-gradient(to right bottom, #fae353, #feb844);
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #293c44;
 }
 
 .container {
-  width: 90vw;
-  max-width: 800px;
-  height: 80vh;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
   position: relative;
   display: flex;
   align-items: center;
-  flex-flow: column nowrap;
-
+  flex-flow: row nowrap;
 }
 
-.watermark {
-  font-family: Homenaje;
-  letter-spacing: 20px;
-  user-select: none;
-  position: absolute;
-  font-weight: 600;
-  font-size: 100px;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: .1;
-  text-transform: uppercase;
+.left {
+  flex: 1;
+  padding-left: 4em;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  height: 100%;
 }
 
 .heading {
+  flex: 1;
+  width: 300px;
+}
 
- }
+.p {
+  font-size: 18px;
+  margin-bottom: 0;
+
+}
+
+.link {
+  color: #136eb3;
+}
+
+.button {
+  margin-top: 1em;
+  border-color: #293c44 !important;
+  color: #293c44 !important;
+
+  &:hover {
+    background-color: #293c44 !important;
+    color: #fae353 !important;
+  }
+}
+
+.illustration {
+  width: 500px;
+  position: relative;
+  top: -5%;
+}

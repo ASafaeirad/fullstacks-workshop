@@ -7,7 +7,7 @@ import { createApp } from './app';
 export const startServer = async () => {
   try {
     await MongooseClient.createClient(process.env.MONGO_URI, { debug: env.isDev });
-    await RedisClient.createClient(process.env.REDIS_URI, { debug: env.isDev });
+    // await RedisClient.createClient(process.env.REDIS_URI, { debug: env.isDev });
     await seed();
   } catch (e) {
     logger.error(e.message);
