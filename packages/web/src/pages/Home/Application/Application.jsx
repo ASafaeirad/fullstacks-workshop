@@ -14,7 +14,7 @@ const cx = classNames.bind(style);
 
 const Application = () => (
   <Section className={cx('section')}>
-    <SectionContent className={cx('content')} stacks={stacks} title="Application Development" info="Road to become a fullstacks web developer" />
+    <SectionContent className={cx('content')} stacks={stacks} title="Application Development Workshops" info="Road to become a fullstacks web developer" />
     <div className={cx('view')}>
       <Screen right className={cx('screen')} />
     </div>

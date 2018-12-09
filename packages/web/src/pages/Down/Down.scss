@@ -10,15 +10,16 @@
 .container {
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   position: relative;
   display: flex;
   align-items: center;
   flex-flow: row nowrap;
+  padding: 0 8%;
 }
 
 .left {
   flex: 1;
-  padding-left: 4em;
 }
 
 .right {
@@ -31,6 +32,7 @@
 .heading {
   flex: 1;
   width: 300px;
+  transition: font-size 500ms;
 }
 
 .p {
@@ -43,19 +45,45 @@
   color: #136eb3;
 }
 
-.button {
-  margin-top: 1em;
-  border-color: #293c44 !important;
-  color: #293c44 !important;
+.illustration {
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  top: -5%;
+}
 
-  &:hover {
-    background-color: #293c44 !important;
-    color: #fae353 !important;
+@media screen and (max-width: 768px) {
+  .root {
+    justify-content: stretch;
+  }
+
+  .container {
+    flex-direction: column-reverse;
+    padding: 2em 10px 3em;
+  }
+
+  .illustration {
+    margin-bottom: 1em;
+  }
+
+  .heading {
+    text-align: center !important;
+  }
+
+  .left {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    text-align: center;
   }
 }
 
-.illustration {
-  width: 500px;
-  position: relative;
-  top: -5%;
+@media screen and (max-width: 320px),
+screen and (max-height: 400px)
+{
+  .heading {
+    font-size: 2rem !important;
+  }
 }

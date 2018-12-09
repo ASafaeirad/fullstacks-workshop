@@ -16,7 +16,7 @@ const Game = () => (
     <div className={cx('view')}>
       <Screen left className={cx('screen')} />
     </div>
-    <SectionContent stacks={stacks} title="Core Fundamentals" info="Road to become better developer" />
+    <SectionContent stacks={stacks} title="Core Fundamentals Workshops" info="Road to become better developer" />
   </Section>
 );
 

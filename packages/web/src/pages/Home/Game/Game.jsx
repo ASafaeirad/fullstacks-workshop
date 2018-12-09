@@ -20,7 +20,7 @@ const Game = () => (
         <img className={cx('loading')} src="/svg/loading.svg" alt="book" />
       </Screen>
     </div>
-    <SectionContent stacks={stacks} title="Game Development" info="Road to become game developer" />
+    <SectionContent stacks={stacks} title="Game Development Workshops" info="Road to become game developer" />
   </Section>
 );
 

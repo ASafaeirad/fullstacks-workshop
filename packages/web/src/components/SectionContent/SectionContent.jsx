@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 
 const SectionContent = ({ title, info, stacks, className }) => (
   <div className={cx('root', className)}>
-    <SectionHeading title={title} info={info} />
+    <SectionHeading className={cx('heading')} info={info}>{title}</SectionHeading>
     <NavLink to="/workshops">
       <Button>Take a look</Button>
     </NavLink>

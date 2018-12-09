@@ -7,10 +7,10 @@
 .heading {
   position: relative;
 
-  &:before {
+  &::before {
     content: ' ';
     position: absolute;
-    background-color: $text-light;
+    background-color: currentColor;
     width: 3px;
     height: 36px;
     top: 50%;
@@ -21,4 +21,12 @@
 
 .subhead {
   opacity: .4;
+}
+
+.center {
+  text-align: center;
+
+  &::before {
+    content: none;
+  }
 }

@@ -1,8 +1,13 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { hot } from 'react-hot-loader';
+import { hot, setConfig } from 'react-hot-loader';
 import { App } from './pages';
+
+setConfig({
+  ignoreSFC: true,
+  pureRender: true,
+});
 
 const theme = {
   colors: {
