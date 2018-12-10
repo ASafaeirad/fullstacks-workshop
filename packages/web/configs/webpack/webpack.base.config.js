@@ -30,20 +30,20 @@ const config = {
       ),
       {
         test: /\.jpe?g$|\.gif$|\.ico$|\.png$|\.svg$/,
-        use: 'file-loader?name=[name].[ext]?[hash]',
+        use: 'file-loader?name=[name].[ext]',
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+        loader: 'url-loader??name=/fonts/[name].[ext]&limit=10000&mimetype=application/font-woff',
       },
 
       {
         test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader',
+        loader: 'file-loader?name=/fonts/[name].[ext]',
       },
       {
         test: /\.otf(\?.*)?$/,
-        use: 'file-loader?name=/fonts/[name].  [ext]&mimetype=application/font-otf',
+        use: 'file-loader?name=/fonts/[name].[ext]&mimetype=application/font-otf',
       },
       {
         test: /\.css$/,
