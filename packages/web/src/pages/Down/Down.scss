@@ -52,6 +52,39 @@
   top: -5%;
 }
 
+.button {
+  margin-top: 15px;
+  padding-left: 40px;
+  color: #293c44 !important;
+  border-color: #293c44 !important;
+  position: relative;
+  width: 100%;
+
+  &:hover {
+    background-color: #293c44 !important;
+    color: #feb844 !important;
+    .tg-icon {
+      border-color: #feb844;
+    }
+    path {
+      fill: #feb844;
+    }
+  }
+}
+
+.tg-icon {
+  position: absolute;
+  border-right: 1px solid #293c44;
+  padding-right: 15px;
+  left: 15px;
+  width: 35px;
+  transition: border-color 500ms;
+  path {
+    fill: #293c44;
+    transition: fill 500ms;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .root {
     justify-content: stretch;
