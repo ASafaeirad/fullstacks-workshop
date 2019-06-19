@@ -1,3 +1,3 @@
-# Fullstacks
+# Fullstacks Workshop
 
-Fullstacks learning path
+fullstacks learning path workshops.
